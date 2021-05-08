@@ -29,3 +29,24 @@
   box-shadow: none;
   transition: var(--transition);
 }
+
+@media (max-width: 1280px) {
+  .Button {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .Button {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .Button {
+    font-size: 10px;
+  }
+}
