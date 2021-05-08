@@ -1,0 +1,31 @@
+:root {
+  --transition: 0.3s ease-in-out;
+}
+
+.Button {
+  width: 100%;
+  padding: 15px 0;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  color: #292929;
+  background-color: rgba(68, 133, 252, 0.06);
+  border: 2px solid #4485fc;
+  transition: var(--transition);
+  border-radius: 4px;
+  outline: none;
+}
+
+.Button:hover {
+  background-color: #4485fc;
+  color: #f5f5f5;
+  box-shadow: 0 4px 8px 0 rgba(68, 133, 252, 0.2);
+  transition: var(--transition);
+}
+
+.Button:active {
+  background-color: #1260ff;
+  border: 2px solid #1260ff;
+  box-shadow: none;
+  transition: var(--transition);
+}
