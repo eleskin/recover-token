@@ -4,13 +4,16 @@ import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
 
 import {BrowserRouter} from 'react-router-dom';
+import {useState} from 'react';
 
 const App = () => {
+  const [isVisibleNavbar, setIsVisibleNavbar] = useState(false);
+
   return (
     <BrowserRouter>
       <div className={styles.App}>
-        <Header/>
-        <Layout/>
+        <Header isVisibleNavbar={isVisibleNavbar} setIsVisibleNavbar={setIsVisibleNavbar}/>
+        <Layout isVisibleNavbar={isVisibleNavbar} setIsVisibleNavbar={setIsVisibleNavbar}/>
       </div>
     </BrowserRouter>
   );

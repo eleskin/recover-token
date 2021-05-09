@@ -1,0 +1,13 @@
+.Layout {
+  height: 100%;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+.Layout__grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100%;
+  grid-gap: 30px;
+  overflow-x: hidden;
+}
