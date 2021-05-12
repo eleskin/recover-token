@@ -36,14 +36,13 @@
 }
 
 .View__container canvas {
-  margin: 0 auto;
-  height: 100% !important;
+  margin: auto;
+  height: 90% !important;
   width: 90%!important;
 }
 
-.View__container canvas div {
-  width: 100%!important;
-  height: 100% !important;
+.View__container div {
+  user-select: none;
 }
 
 .View__stats {
