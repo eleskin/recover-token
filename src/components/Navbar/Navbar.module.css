@@ -27,6 +27,22 @@
   align-items: center;
   background: rgba(68, 133, 252, 0);
   transition: var(--transition);
+  position: relative;
+}
+
+.Navbar__link:hover::after, .Navbar__link_active:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  transition: var(--transition);
+  font-size: 16px;
+  font-weight: normal;
+  width: 100px;
+  left: 48px;
+  color: #f5f5f5;
+  text-align: center;
+  padding: 8px;
+  background-color: #292929;
+  border-radius: 4px;
 }
 
 .Navbar__link_active {
