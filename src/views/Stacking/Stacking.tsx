@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Dispatch, useState} from 'react';
 import Web3 from 'web3';
 import Web3Modal from 'web3modal';
 import WalletConnectProvider from '@walletconnect/web3-provider';
@@ -15,28 +15,29 @@ import Title from '../../components/Content/Title/Title';
 import Social from '../../components/Social/Social';
 import Button from '../../components/Button/Button';
 
-const Stacking = () => {
+interface IStacking {
+  networkId: any;
+  setNetworkId: Dispatch<any>;
+  loading: boolean;
+  setLoading: Dispatch<boolean>;
+  web3Modal: any;
+  account: string;
+  setAccount: Dispatch<string>;
+}
+
+const Stacking = ({
+                    networkId,
+                    setNetworkId,
+                    loading,
+                    setLoading,
+                    web3Modal,
+                    account,
+                    setAccount
+                  }: IStacking) => {
   const [stake, setStake] = useState('');
   const [riskystake, setRiskyStake] = useState('');
-  const [networkId, setNetworkId] = useState('');
-  const [account, setAccount] = useState('');
   const [rcvrliq, setRCVRLiq] = useState('');
   const [windowWeb3, setWindowWeb3]: any = useState(null);
-  const [loading, setLoading] = useState(false);
-
-  const providerOptions = {
-    walletconnect: {
-      package: WalletConnectProvider, // required
-      options: {
-        //infuraId: "3e2412ff21a04fa79094facb7e20d56b" // required
-      }
-    }
-  };
-
-  const web3Modal = new Web3Modal({
-    cacheProvider: true, // optional
-    providerOptions // required
-  });
 
   const createSafeStake = async () => {
     try {

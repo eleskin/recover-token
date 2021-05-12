@@ -41,7 +41,7 @@
   width: 90%!important;
 }
 
-.View__container div {
+.View__container canvas + div {
   user-select: none;
 }
 
