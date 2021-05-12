@@ -6,6 +6,7 @@ interface IButton {
   children: ReactNode;
   type: string;
   theme?: string;
+  onClick?: any;
 }
 
 const typesStyle: any = {
@@ -24,11 +25,12 @@ const themes: any = {
   }
 };
 
-const Button = ({children, type, theme}: IButton) => {
+const Button = ({children, type, theme, onClick}: IButton) => {
   return (
     <button
       className={typesStyle[type]}
       style={theme && themes[theme]}
+      onClick={onClick}
     >
       {children}
     </button>
