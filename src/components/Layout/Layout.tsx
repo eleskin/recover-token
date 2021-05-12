@@ -10,32 +10,38 @@ import Migration from '../../views/Migration/Migration';
 import Paper from '../../views/Paper/Paper';
 import About from '../../views/About/About';
 import {Dispatch, useState} from 'react';
-import Web3Modal from 'web3modal';
-import WalletConnectProvider from '@walletconnect/web3-provider';
 
 interface ILayout {
   isVisibleNavbar: boolean;
   setIsVisibleNavbar: Dispatch<boolean>;
+  windowWeb3: any;
+  setWindowWeb3: Dispatch<any>;
+  web3Modal: any;
+  account: string;
+  setAccount: Dispatch<string>;
+  totalSafe: number;
+  totalRisky: number;
+  lastsaferebase: string;
+  lastriskyrebase: string;
+  networkId: string;
+  setNetworkId: Dispatch<string>;
 }
 
-const Layout = ({isVisibleNavbar}: ILayout) => {
-  const [networkId, setNetworkId] = useState('');
+const Layout = ({
+                  isVisibleNavbar,
+                  windowWeb3,
+                  setWindowWeb3,
+                  web3Modal,
+                  account,
+                  setAccount,
+                  totalSafe,
+                  totalRisky,
+                  lastsaferebase,
+                  lastriskyrebase,
+                  networkId,
+                  setNetworkId
+                }: ILayout) => {
   const [loading, setLoading] = useState(false);
-  const [account, setAccount] = useState('');
-
-  const providerOptions = {
-    walletconnect: {
-      package: WalletConnectProvider, // required
-      options: {
-        //infuraId: "3e2412ff21a04fa79094facb7e20d56b" // required
-      }
-    }
-  };
-
-  const web3Modal = new Web3Modal({
-    cacheProvider: true, // optional
-    providerOptions // required
-  });
 
   return (
     <div className={styles.Layout}>
@@ -53,6 +59,8 @@ const Layout = ({isVisibleNavbar}: ILayout) => {
                   account={account}
                   setAccount={setAccount}
                   web3Modal={web3Modal}
+                  windowWeb3={windowWeb3}
+                  setWindowWeb3={setWindowWeb3}
                 />
               </Route>
               <Route exact path="/migration">
@@ -66,8 +74,15 @@ const Layout = ({isVisibleNavbar}: ILayout) => {
                   web3Modal={web3Modal}
                 />
               </Route>
-              <Route exact path="/white-paper" component={Paper} />
-              <Route exact path="/about" component={About} />
+              <Route exact path="/white-paper" component={Paper}/>
+              <Route exact path="/about">
+                <About
+                  totalSafe={totalSafe}
+                  totalRisky={totalRisky}
+                  lastsaferebase={lastsaferebase}
+                  lastriskyrebase={lastriskyrebase}
+                />
+              </Route>
             </Switch>
           </div>
         </div>

@@ -1,7 +1,5 @@
 import {Dispatch, useState} from 'react';
 import Web3 from 'web3';
-import Web3Modal from 'web3modal';
-import WalletConnectProvider from '@walletconnect/web3-provider';
 
 import staking from '../../contracts/Staking.json';
 import lp from '../../contracts/lp.json';
@@ -23,6 +21,8 @@ interface IStacking {
   web3Modal: any;
   account: string;
   setAccount: Dispatch<string>;
+  windowWeb3: any;
+  setWindowWeb3: Dispatch<any>;
 }
 
 const Stacking = ({
@@ -32,12 +32,13 @@ const Stacking = ({
                     setLoading,
                     web3Modal,
                     account,
-                    setAccount
+                    setAccount,
+                    windowWeb3,
+                    setWindowWeb3
                   }: IStacking) => {
   const [stake, setStake] = useState('');
   const [riskystake, setRiskyStake] = useState('');
   const [rcvrliq, setRCVRLiq] = useState('');
-  const [windowWeb3, setWindowWeb3]: any = useState(null);
 
   const createSafeStake = async () => {
     try {

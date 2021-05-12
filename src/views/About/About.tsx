@@ -1,16 +1,16 @@
-import {useState} from 'react';
-
 import styles from '../Views.module.css';
 
 import Social from '../../components/Social/Social';
 import Title from '../../components/Content/Title/Title';
 
-const About = () => {
-  const [totalSafe, setTotalSafe] = useState(501477.94116610421875);
-  const [totalRisky, setTotalRisky] = useState(503224.442710094300325863);
-  const [lastriskyrebase, setLastRiskyRebase] = useState('04/05/2021, 14:18:00');
-  const [lastsaferebase, setLastSafeRebase] = useState('04/05/2021, 14:30:39');
+interface IAbout {
+  totalSafe: number;
+  totalRisky: number;
+  lastsaferebase: string;
+  lastriskyrebase: string;
+}
 
+const About = ({totalSafe, totalRisky, lastsaferebase, lastriskyrebase}: IAbout) => {
   return (
     <div className={styles.View}>
       <h2 className={styles.View__title}>About stats</h2>

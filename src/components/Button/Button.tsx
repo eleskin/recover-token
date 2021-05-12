@@ -7,6 +7,7 @@ interface IButton {
   type: string;
   theme?: string;
   onClick?: any;
+  disabled?: boolean;
 }
 
 const typesStyle: any = {
@@ -25,12 +26,13 @@ const themes: any = {
   }
 };
 
-const Button = ({children, type, theme, onClick}: IButton) => {
+const Button = ({children, type, theme, onClick, disabled}: IButton) => {
   return (
     <button
       className={typesStyle[type]}
       style={theme && themes[theme]}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
