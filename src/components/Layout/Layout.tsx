@@ -20,15 +20,16 @@ const Layout = ({isVisibleNavbar}: ILayout) => {
   return (
     <div className={styles.Layout}>
       <Container>
-        <div className={styles.Layout__grid}>
-          <Navbar isVisibleNavbar={isVisibleNavbar}/>
-
-          <Switch>
-            <Route exact path="/" component={Stacking} />
-            <Route exact path="/migration" component={Migration} />
-            <Route exact path="/white-paper" component={Paper} />
-            <Route exact path="/about" component={About} />
-          </Switch>
+        <div className={isVisibleNavbar ? styles.Layout__grid_active : styles.Layout__grid}>
+          <Navbar/>
+          <div className={styles.Layout__subgrid}>
+            <Switch>
+              <Route exact path="/" component={Stacking} />
+              <Route exact path="/migration" component={Migration} />
+              <Route exact path="/white-paper" component={Paper} />
+              <Route exact path="/about" component={About} />
+            </Switch>
+          </div>
         </div>
       </Container>
     </div>

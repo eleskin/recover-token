@@ -24,7 +24,7 @@ const Header = ({isVisibleNavbar, setIsVisibleNavbar}: IHeader) => {
             <Link to="/"><img src={image_logo} alt=""/></Link>
           </div>
           <div className={styles.Header__button}>
-            <Button>Connect</Button>
+            <Button type="secondary">Connect</Button>
           </div>
         </div>
       </Container>

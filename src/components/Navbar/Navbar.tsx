@@ -6,15 +6,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLayerGroup, faExchangeAlt, faInfo} from '@fortawesome/free-solid-svg-icons';
 import {faStickyNote} from '@fortawesome/free-regular-svg-icons';
 
-interface INavbar {
-  isVisibleNavbar: boolean;
-}
-
-const Navbar = ({isVisibleNavbar}: INavbar) => {
+const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className={isVisibleNavbar ? styles.Navbar_active : styles.Navbar}>
+    <nav className={styles.Navbar}>
       <Link
         to="/"
         className={location.pathname === '/' ? styles.Navbar__link_active : styles.Navbar__link}

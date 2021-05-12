@@ -1,6 +1,10 @@
+import styles from './Social.module.css';
+
+
 const Social = () => {
   return (
-    <div></div>
+    <div className={styles.Social}>
+    </div>
   );
 };
 
