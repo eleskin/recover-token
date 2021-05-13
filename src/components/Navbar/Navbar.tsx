@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 import {Link, useLocation} from 'react-router-dom';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faLayerGroup, faExchangeAlt, faInfo} from '@fortawesome/free-solid-svg-icons';
+import {faLayerGroup, faExchangeAlt, faInfo, faHome} from '@fortawesome/free-solid-svg-icons';
 import {faStickyNote} from '@fortawesome/free-regular-svg-icons';
 
 const Navbar = () => {
@@ -11,6 +11,13 @@ const Navbar = () => {
 
   return (
     <nav className={styles.Navbar}>
+      <Link
+        to="/"
+        className={location.pathname === '/' ? styles.Navbar__link_active : styles.Navbar__link}
+        data-text="Home"
+      >
+        <FontAwesomeIcon icon={faHome}/>
+      </Link>
       <Link
         to="/stacking"
         className={location.pathname === '/stacking' ? styles.Navbar__link_active : styles.Navbar__link}
