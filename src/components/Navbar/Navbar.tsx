@@ -12,8 +12,8 @@ const Navbar = () => {
   return (
     <nav className={styles.Navbar}>
       <Link
-        to="/"
-        className={location.pathname === '/' ? styles.Navbar__link_active : styles.Navbar__link}
+        to="/stacking"
+        className={location.pathname === '/stacking' ? styles.Navbar__link_active : styles.Navbar__link}
         data-text="Stacking LP"
       >
         <FontAwesomeIcon icon={faLayerGroup}/>

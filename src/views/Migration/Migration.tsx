@@ -87,9 +87,9 @@ const Migration = ({
         <Title value="DeadToken Migration Management"/>
         <div className={styles.View__container}>
           <div className={styles.View__buttons_3}>
-            <Button type="primary" onClick={approve}>Approve {deadtokenname}!</Button>
-            <Button type="primary" onClick={migrate}>Migrate {deadtokenname} to RCVR!</Button>
-            <Button type="primary" onClick={migrate}>Claim Vested RCVR!</Button>
+            <Button type="primary" onClick={approve} prompt="Approve">Approve {deadtokenname}!</Button>
+            <Button type="primary" onClick={migrate} prompt="Migrate">Migrate {deadtokenname} to RCVR!</Button>
+            <Button type="primary" onClick={migrate} prompt="Claim">Claim Vested RCVR!</Button>
           </div>
           <p
             className={styles.View__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus sed viverra tellus in hac habitasse platea. Lacus sed viverra tellus in. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Sed libero enim sed faucibus turpis in eu mi bibendum. Sed cras ornare arcu dui vivamus arcu felis bibendum. Tortor at auctor urna nunc id cursus metus. Egestas dui id ornare arcu odio ut sem nulla. Sagittis orci a scelerisque purus semper eget. Eu nisl nunc mi ipsum faucibus vitae aliquet. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Morbi tincidunt ornare massa eget. Integer feugiat scelerisque varius morbi enim. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Consequat interdum varius sit amet mattis vulputate. Aliquam faucibus purus in massa. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Nunc id cursus metus aliquam eleifend mi in nulla.</p>

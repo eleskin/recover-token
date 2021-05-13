@@ -3,13 +3,14 @@ import styles from './Layout.module.css';
 import Navbar from '../Navbar/Navbar';
 import Container from '../Container/Container';
 
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import Stacking from '../../views/Stacking/Stacking';
 import Migration from '../../views/Migration/Migration';
 import Paper from '../../views/Paper/Paper';
 import About from '../../views/About/About';
 import {Dispatch, useState} from 'react';
+import Home from '../../views/Home/Home';
 
 interface ILayout {
   isVisibleNavbar: boolean;
@@ -50,7 +51,8 @@ const Layout = ({
           <Navbar/>
           <div className={styles.Layout__subgrid}>
             <Switch>
-              <Route exact path="/">
+              <Route exact path="/"><Home/></Route>
+              <Route exact path="/stacking">
                 <Stacking
                   networkId={networkId}
                   setNetworkId={setNetworkId}
@@ -74,7 +76,7 @@ const Layout = ({
                   web3Modal={web3Modal}
                 />
               </Route>
-              <Route exact path="/white-paper" component={Paper}/>
+              <Route exact path="/white-paper"><Paper/></Route>
               <Route exact path="/about">
                 <About
                   totalSafe={totalSafe}
@@ -83,6 +85,7 @@ const Layout = ({
                   lastriskyrebase={lastriskyrebase}
                 />
               </Route>
+              <Route exact path="*"><Redirect to="/"/></Route>
             </Switch>
           </div>
         </div>

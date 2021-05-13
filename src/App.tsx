@@ -7,6 +7,7 @@ import rcvr from './contracts/RCVR.json';
 
 import Header from './components/Header/Header';
 import Layout from './components/Layout/Layout';
+import Preloader from './components/Preloader/Preloader';
 
 import {BrowserRouter} from 'react-router-dom';
 import {useEffect, useState} from 'react';
@@ -31,6 +32,7 @@ const App = () => {
   const [rewardBalance, setRewardBalance]: any = useState(0);
   const [riskyrewardBalance, setRiskyRewardBalance]: any = useState(0);
   const [locked, setLocked] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   let temp: any = '';
   let temp2: any = 0.0;
@@ -364,6 +366,10 @@ const App = () => {
     effectFunc();
   }, [windowWeb3]);
 
+  useEffect(() => {
+    setTimeout(() => setIsLoading(true), 2000);
+  }, []);
+
   const providerOptions = {
     walletconnect: {
       package: WalletConnectProvider, // required
@@ -420,6 +426,7 @@ const App = () => {
           networkId={networkId}
           setNetworkId={setNetworkId}
         />
+        {!isLoading && <Preloader/>}
       </div>
     </BrowserRouter>
   );
