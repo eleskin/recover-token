@@ -26,6 +26,11 @@ interface ILayout {
   lastriskyrebase: string;
   networkId: string;
   setNetworkId: Dispatch<string>;
+  deadtokenBalance: string;
+  stakedBalance: number;
+  riskystakedBalance: number;
+  rewardBalance: number;
+  riskyrewardBalance: number;
 }
 
 const Layout = ({
@@ -40,7 +45,12 @@ const Layout = ({
                   lastsaferebase,
                   lastriskyrebase,
                   networkId,
-                  setNetworkId
+                  setNetworkId,
+                  deadtokenBalance,
+                  stakedBalance,
+                  riskystakedBalance,
+                  rewardBalance,
+                  riskyrewardBalance
                 }: ILayout) => {
   const [loading, setLoading] = useState(false);
 
@@ -74,6 +84,11 @@ const Layout = ({
                   account={account}
                   setAccount={setAccount}
                   web3Modal={web3Modal}
+                  deadtokenBalance={deadtokenBalance}
+                  stakedBalance={stakedBalance}
+                  riskystakedBalance={riskystakedBalance}
+                  rewardBalance={rewardBalance}
+                  riskyrewardBalance={riskyrewardBalance}
                 />
               </Route>
               <Route exact path="/white-paper"><Paper/></Route>

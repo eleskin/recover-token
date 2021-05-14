@@ -43,6 +43,7 @@
   padding: 8px;
   background-color: #292929;
   border-radius: 4px;
+  z-index: 1;
 }
 
 .Navbar__link_active {

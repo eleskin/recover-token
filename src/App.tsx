@@ -385,7 +385,12 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className={styles.App}>
+      <div
+        className={styles.App}
+        style={{
+          overflow: isLoading ? 'auto' : 'hidden',
+        }}
+      >
         <Header
           isVisibleNavbar={isVisibleNavbar}
           setIsVisibleNavbar={setIsVisibleNavbar}
@@ -425,6 +430,11 @@ const App = () => {
           lastriskyrebase={lastriskyrebase}
           networkId={networkId}
           setNetworkId={setNetworkId}
+          deadtokenBalance={deadtokenBalance}
+          stakedBalance={stakedBalance}
+          riskystakedBalance={riskystakedBalance}
+          rewardBalance={rewardBalance}
+          riskyrewardBalance={riskyrewardBalance}
         />
         {!isLoading && <Preloader/>}
       </div>

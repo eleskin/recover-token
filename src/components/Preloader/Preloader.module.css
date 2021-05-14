@@ -15,6 +15,10 @@
   transition: var(--transition);
 }
 
+.Preloader img, .Preloader__hide img {
+  max-width: 90%;
+}
+
 .Preloader__hide {
   opacity: 0;
   transition: var(--transition);

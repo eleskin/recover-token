@@ -20,6 +20,11 @@ interface IMigration {
   web3Modal: any;
   account: string;
   setAccount: Dispatch<string>;
+  deadtokenBalance: string;
+  stakedBalance: number;
+  riskystakedBalance: number;
+  rewardBalance: number;
+  riskyrewardBalance: number;
 }
 
 const Migration = ({
@@ -29,7 +34,12 @@ const Migration = ({
                      setLoading,
                      web3Modal,
                      account,
-                     setAccount
+                     setAccount,
+                     deadtokenBalance,
+                     stakedBalance,
+                     riskystakedBalance,
+                     rewardBalance,
+                     riskyrewardBalance
                    }: IMigration) => {
   const deadtokenname = 'GOMIX';
 
@@ -86,6 +96,13 @@ const Migration = ({
       <div className={styles.View__content}>
         <Title value="DeadToken Migration Management"/>
         <div className={styles.View__container}>
+          <div className={styles.View__stats}>
+            <span>Gomix Balance: {deadtokenBalance}</span>
+            <span>RCVR Stake (Safe): {stakedBalance}</span>
+            <span>RCVR Stake (Risky): {riskystakedBalance}</span>
+            <span>Available RCVR Rewards (Safe): {rewardBalance}</span>
+            <span>Available RCVR Rewards (Risky): {riskyrewardBalance}</span>
+          </div>
           <div className={styles.View__buttons_3}>
             <Button type="primary" onClick={approve} prompt="Approve">Approve {deadtokenname}!</Button>
             <Button type="primary" onClick={migrate} prompt="Migrate">Migrate {deadtokenname} to RCVR!</Button>
