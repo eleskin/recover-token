@@ -73,6 +73,10 @@ const Layout = ({
                   web3Modal={web3Modal}
                   windowWeb3={windowWeb3}
                   setWindowWeb3={setWindowWeb3}
+                  stakedBalance={stakedBalance}
+                  riskystakedBalance={riskystakedBalance}
+                  rewardBalance={rewardBalance}
+                  riskyrewardBalance={riskyrewardBalance}
                 />
               </Route>
               <Route exact path="/migration">
@@ -85,10 +89,6 @@ const Layout = ({
                   setAccount={setAccount}
                   web3Modal={web3Modal}
                   deadtokenBalance={deadtokenBalance}
-                  stakedBalance={stakedBalance}
-                  riskystakedBalance={riskystakedBalance}
-                  rewardBalance={rewardBalance}
-                  riskyrewardBalance={riskyrewardBalance}
                 />
               </Route>
               <Route exact path="/white-paper"><Paper/></Route>

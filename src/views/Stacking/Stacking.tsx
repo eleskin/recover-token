@@ -23,6 +23,10 @@ interface IStacking {
   setAccount: Dispatch<string>;
   windowWeb3: any;
   setWindowWeb3: Dispatch<any>;
+  stakedBalance: number;
+  riskystakedBalance: number;
+  rewardBalance: number;
+  riskyrewardBalance: number;
 }
 
 const Stacking = ({
@@ -34,7 +38,11 @@ const Stacking = ({
                     account,
                     setAccount,
                     windowWeb3,
-                    setWindowWeb3
+                    setWindowWeb3,
+                    stakedBalance,
+                    riskystakedBalance,
+                    rewardBalance,
+                    riskyrewardBalance
                   }: IStacking) => {
   const [stake, setStake] = useState('');
   const [riskystake, setRiskyStake] = useState('');
@@ -286,6 +294,12 @@ const Stacking = ({
       <div className={styles.View__content}>
         <Title value="RCVR Staking Control"/>
         <div className={styles.View__container}>
+          <div className={styles.View__stats}>
+            <span>RCVR Stake (Safe): {stakedBalance}</span>
+            <span>RCVR Stake (Risky): {riskystakedBalance}</span>
+            <span>Available RCVR Rewards (Safe): {rewardBalance}</span>
+            <span>Available RCVR Rewards (Risky): {riskyrewardBalance}</span>
+          </div>
           <div className={styles.View__label}>
             <h4>[SAFE POOL] RCVR</h4>
             <input

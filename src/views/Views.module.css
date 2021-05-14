@@ -54,6 +54,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 32px;
+  margin-bottom: 32px;
 }
 
 .View__text {
@@ -84,7 +85,7 @@
   grid-column-gap: 64px;
   justify-content: center;
   margin-bottom: 32px;
-  margin-top: 32px;
+  /*margin-top: 32px;*/
 }
 
 .View__buttons_2 {
@@ -104,6 +105,10 @@
   grid-column-gap: 20px;
   padding: 0 20px;
   margin-bottom: 32px;
+}
+
+.View__label:first-child {
+  /*margin-top: 32px;*/
 }
 
 .View__label:last-child {
