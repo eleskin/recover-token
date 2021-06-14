@@ -3,6 +3,9 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-gap: 30px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .View__title {
@@ -12,15 +15,16 @@
 }
 
 .View__content {
-  background: #212121;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+  background: rgba(33, 33, 33, 0.9);
+  /*box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);*/
   border-radius: 4px;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  color: #ffffff;
 }
 
-.View__content::-webkit-scrollbar { /* 1 - скроллбар */
+.View__content::-webkit-scrollbar {
   width: 4px;
   background: rgba(68, 133, 252, 0.2);
   border-radius: 3px;
@@ -85,6 +89,7 @@
   grid-column-gap: 64px;
   justify-content: center;
   margin-bottom: 32px;
+  grid-row-gap: 16px;
   /*margin-top: 32px;*/
 }
 
@@ -175,6 +180,9 @@
 }
 
 @media (max-width: 960px) {
+  .View {
+    background-size: 100%;
+  }
   .View__buttons_3 {
     grid-template-columns: repeat(3, 180px);
   }

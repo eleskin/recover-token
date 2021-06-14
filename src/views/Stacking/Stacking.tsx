@@ -12,6 +12,7 @@ import styles from '../Views.module.css';
 import Title from '../../components/Content/Title/Title';
 import Social from '../../components/Social/Social';
 import Button from '../../components/Button/Button';
+import background from '../Migration/img/Main_back.png';
 
 interface IStacking {
   networkId: any;
@@ -27,7 +28,10 @@ interface IStacking {
   riskystakedBalance: number;
   rewardBalance: number;
   riskyrewardBalance: number;
+  lptokenBalance: number;
+  balance: number;
 }
+
 
 const Stacking = ({
                     networkId,
@@ -40,8 +44,10 @@ const Stacking = ({
                     windowWeb3,
                     setWindowWeb3,
                     stakedBalance,
+                    lptokenBalance,
                     riskystakedBalance,
                     rewardBalance,
+                    balance,
                     riskyrewardBalance
                   }: IStacking) => {
   const [stake, setStake] = useState('');
@@ -289,22 +295,24 @@ const Stacking = ({
   };
 
   return (
-    <div className={styles.View}>
-      <h2 className={styles.View__title}>Stacking LP</h2>
+    <div className={styles.View} style={{backgroundImage: `url(${background})`}}>
+      <h2 className={styles.View__title}>Staking Management</h2>
       <div className={styles.View__content}>
-        <Title value="RCVR Staking Control"/>
+        <Title value={account}/>
         <div className={styles.View__container}>
           <div className={styles.View__stats}>
-            <span>RCVR Stake (Safe): {stakedBalance}</span>
-            <span>RCVR Stake (Risky): {riskystakedBalance}</span>
-            <span>Available RCVR Rewards (Safe): {rewardBalance}</span>
-            <span>Available RCVR Rewards (Risky): {riskyrewardBalance}</span>
+            <span>RCVR Balance: {balance}</span>
+            <span>RCVR Staked in SafePool: {stakedBalance}</span>
+            <span>RCVR Staked in RiskyPool: {riskystakedBalance}</span>
+            <span>Pending Reward (Safe): {rewardBalance}</span>
+            <span>Pending Reward (Risky): {riskyrewardBalance}</span>
+            <span>RCVR LP Balance: {lptokenBalance}</span>
           </div>
           <div className={styles.View__label}>
-            <h4>[SAFE POOL] RCVR</h4>
+            <h4>Safe Staking Pool:</h4>
             <input
               type="number"
-              placeholder="Enter value"
+              placeholder="RCVR amount to Stake"
               min="1"
               step="1"
               max="100000"
@@ -312,50 +320,32 @@ const Stacking = ({
               onChange={(e) => setStake(e.target.value)}
             />
             <div>
-              <Button type="primary" onClick={createSafeStake}>Stake</Button>
-              <Button type="secondary" theme="dark" onClick={removeStake}>Unstake</Button>
-              <Button type="danger" onClick={getSafeRewards}>Withdraw!</Button>
-              <Button type="success" onClick={getTreasuryRewardsCompSafe}>Compound!</Button>
+              <Button type="primary" prompt="Stake XX RCVR" onClick={createSafeStake}>Stake</Button>
+              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark" onClick={removeStake}>Unstake</Button>
+              <Button type="danger" prompt="Clain Pending RCVR Rewards" onClick={getSafeRewards}>Withdraw!</Button>
+              <Button type="success" prompt="Claim Pending Reward and add to Stake" onClick={getTreasuryRewardsCompSafe}>Compound!</Button>
             </div>
           </div>
           <div className={styles.View__label}>
-            <h4>[RISKY POOL] RCVR</h4>
+            <h4>Risky Staking Pool</h4>
             <input
               type="number"
-              placeholder="Enter value"
+              placeholder="RCVR amount to Stake"
               min="1"
               max="100000"
               defaultValue={riskystake}
               onChange={(e) => setRiskyStake(e.target.value)}
             />
             <div>
-              <Button type="primary" onClick={createRiskyStake}>Stake</Button>
-              <Button type="secondary" theme="dark" onClick={removeRiskyStake}>Unstake</Button>
-              <Button type="danger" onClick={getRiskyRewards}>Withdraw!</Button>
-              <Button type="success" onClick={getTreasuryRewardsCompRisky}>Compound!</Button>
+              <Button type="primary" prompt="Stake XX RCVR" onClick={createRiskyStake}>Stake</Button>
+              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark" onClick={removeRiskyStake}>Unstake</Button>
+              <Button type="danger" prompt="Clain Pending RCVR Rewards" onClick={getRiskyRewards}>Withdraw!</Button>
+              <Button type="success" prompt="Claim Pending Reward and add to Stake" onClick={getTreasuryRewardsCompRisky}>Compound!</Button>
             </div>
           </div>
           <div className={styles.View__buttons_2}>
-            <Button type="primary" onClick={forceDistribute2}>Trigger SafePool Rebase!</Button>
-            <Button type="primary" onClick={forceDistribute1}>Trigger RiskyPool Rebase!</Button>
-          </div>
-        </div>
-        <Title value="RCVR V1 Liquidty"/>
-        <div className={styles.View__container}>
-          <div className={styles.View__label}>
-            <h4>RCVR Tokens</h4>
-            <input
-              type="number"
-              placeholder="Enter value"
-              min="1"
-              max="10000"
-              defaultValue={rcvrliq}
-              onChange={(e) => setRCVRLiq(e.target.value)}
-            />
-            <div>
-              <Button type="primary" onClick={approveRCVR}>Approve!</Button>
-              <Button type="secondary" theme="dark" onClick={createLP01}>Get LP Tokens!</Button>
-            </div>
+            <Button type="primary" prompt="Rebase the SafePool and generate Rewards if +" onClick={forceDistribute2}>Trigger SafePool Rebase!</Button>
+            <Button type="primary" prompt="Rebase the RiskyPool and generate Rewards if +" onClick={forceDistribute1}>Trigger RiskyPool Rebase!</Button>
           </div>
         </div>
       </div>

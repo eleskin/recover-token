@@ -1,18 +1,49 @@
 import styles from '../Views.module.css';
 import Social from '../../components/Social/Social';
+import background from '../Migration/img/Main_back.png';
 
 const Home = () => {
   return (
-    <div className={styles.View}>
-      <h2 className={styles.View__title}>Recover Token - For the community by the Community</h2>
+    <div className={styles.View} style={{backgroundImage: `url(${background})`}}>
+      <h2 className={styles.View__title}
+          style={{textAlign: 'center'}}>RecoverTokens's intention is to help rugged victims get some value back from their tokens. Dynamic Staking is already live earning investors rewards in 2 different pools based on the price of BTC & RCVR.</h2>
       <div className={styles.View__content}>
         <div className={styles.View__container}>
+          <h1 className={styles.View__title}
+              style={{color: 'yellow', textAlign: 'center'}}>A small project with a very very big goal....</h1>
           <p
-            className={styles.View__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus sed viverra tellus in hac habitasse platea. Lacus sed viverra tellus in. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Sed libero enim sed faucibus turpis in eu mi bibendum. Sed cras ornare arcu dui vivamus arcu felis bibendum. Tortor at auctor urna nunc id cursus metus. Egestas dui id ornare arcu odio ut sem nulla. Sagittis orci a scelerisque purus semper eget. Eu nisl nunc mi ipsum faucibus vitae aliquet. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Morbi tincidunt ornare massa eget. Integer feugiat scelerisque varius morbi enim. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Consequat interdum varius sit amet mattis vulputate. Aliquam faucibus purus in massa.</p>
+            className={styles.View__text}>The world of ERC20/BEP20 tokens can be very daunting, especially given the anonymous nature of crypto. There are great opportunities to find great projects and ride the DEFI wave, however with that comes a very human factor of greed. DEFI/Crypto has become a breeding ground for rug pulls and scams. RecoverToken was born out of a desire to give back to the community...</p>
           <p
-            className={styles.View__text}>Duis tristique sollicitudin nibh sit. Nibh cras pulvinar mattis nunc sed blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Porttitor eget dolor morbi non arcu risus quis varius. Id leo in vitae turpis massa sed elementum. Cras semper auctor neque vitae tempus quam. Sociis natoque penatibus et magnis dis. Hac habitasse platea dictumst vestibulum rhoncus. Malesuada proin libero nunc consequat interdum. Consectetur adipiscing elit ut aliquam purus sit. Euismod quis viverra nibh cras pulvinar mattis. Amet mattis vulputate enim nulla aliquet. Sit amet dictum sit amet justo donec enim. Massa tincidunt nunc pulvinar sapien et ligula. Magnis dis parturient montes nascetur ridiculus mus. Vulputate sapien nec sagittis aliquam malesuada bibendum.</p>
+            className={styles.View__text}>RecoverToken is a BEP20 Token (ETH planned for the future) which was created in order to provide a mechanism for those victims of scams to attempt to reclaim some of their lost funds. How is this achieved you ask? By creating a direct path for the rugged token holders to</p>
+          <h2 className={styles.View__title}>RCVR Features:</h2>
+          <h3
+            style={{color: 'chartreuse'}}>Frictionless Staking:</h3>
           <p
-            className={styles.View__text}>Duis tristique sollicitudin nibh sit. Nibh cras pulvinar mattis nunc sed blandit. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Porttitor eget dolor morbi non arcu risus quis varius. Id leo in vitae turpis massa sed elementum. Cras semper auctor neque vitae tempus quam. Sociis natoque penatibus et magnis dis. Hac habitasse platea dictumst vestibulum rhoncus. Malesuada proin libero nunc consequat interdum. Consectetur adipiscing elit ut aliquam purus sit. Euismod quis viverra nibh cras pulvinar mattis. Amet mattis vulputate enim nulla aliquet. Sit amet dictum sit amet justo donec enim. Massa tincidunt nunc pulvinar sapien et ligula. Magnis dis parturient montes nascetur ridiculus mus.</p>
+            className={styles.View__text}>Staking is done without removing RCVR from your wallet. You can stake in both pools at the same time and earn double the rewards! Rebase rewards are don’t against your reward balance, not your RCVR in your wallet. They are always yours!
+          </p>
+          <h3
+            style={{color: 'red'}}>Dynamic Stake Pools:</h3>
+          <p
+            className={styles.View__text}>Rebases in the stake pools are based on the prices of real tokens (BTC and RCVR). If the price goes up since the last rebase, you get a 0.25% reward. If the price goes down you lose a 0.25% off your reward.
+          </p>
+          <h3
+            style={{color: 'chartreuse'}}>Direct Migration to RCVR from a Rugged Token:</h3>
+          <p
+            className={styles.View__text}>We offer a direct migration to RCVR from the currently active Rugged token. We offer a competitive ratio, which ensures that it is worthwhile for the migrator. They can then stake these RCVR and earn even more.
+          </p>
+          <h3
+            style={{color: 'red'}}>Vesting Migration Contract:</h3>
+          <p
+            className={styles.View__text}>In order to balance out a migration scenario of swap and sell, we have created a custom Vesting contract that drip feeds the RCVR over a period of 9 days after migration.
+          </p>
+          <h3
+            style={{color: 'chartreuse'}}>LP Bonus rewards:</h3>
+          <p
+            className={styles.View__text}>If you hold RCVR V1 LP in your wallet at reward time, you will qualify for additional bonus RCVR!
+          </p>
+          <h2>We believe in the uniqueness of RCVR and the role it can play in the DEFI community. Our goal is to make it the Number One Token to help those victims of Rug Pulls!</h2>
+
+
         </div>
       </div>
       <Social/>

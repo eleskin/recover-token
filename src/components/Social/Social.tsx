@@ -6,7 +6,7 @@ const Social = () => {
   return (
     <div className={styles.Social}>
       <a
-        href="https://twitter.com"
+        href="https://twitter.com/RecoverToken"
         className={styles.Social__link}
         target="_blank"
         rel="noreferrer"
@@ -14,7 +14,7 @@ const Social = () => {
         <FontAwesomeIcon icon={faTwitter}/>
       </a>
       <a
-        href="https://web.telegram.org/"
+        href="https://t.me/recovertoken/"
         className={styles.Social__link}
         target="_blank"
         rel="noreferrer"
@@ -22,7 +22,7 @@ const Social = () => {
         <FontAwesomeIcon icon={faTelegramPlane}/>
       </a>
       <a
-        href="https://medium.com/"
+        href="https://recovertoken.medium.com/"
         className={styles.Social__link}
         target="_blank"
         rel="noreferrer"
@@ -30,7 +30,7 @@ const Social = () => {
         <FontAwesomeIcon icon={faMediumM}/>
       </a>
       <a
-        href="https://wikipedia.org/wiki/Ethereum"
+        href="https://bscscan.com/address/0x26D4552879CdCc32599E2Ff1c1e2A438d5c5323e"
         className={styles.Social__link}
         target="_blank"
         rel="noreferrer"

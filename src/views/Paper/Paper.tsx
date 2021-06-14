@@ -7,6 +7,7 @@ import pdf from './white_paper.pdf';
 
 import Social from '../../components/Social/Social';
 import Title from '../../components/Content/Title/Title';
+import background from '../Migration/img/Main_back.png';
 
 const Paper = () => {
   const [numPages, setNumPages] = useState(null);
@@ -25,10 +26,10 @@ const Paper = () => {
   });
 
   return (
-    <div className={styles.View}>
+    <div className={styles.View} style={{backgroundImage: `url(${background})`}}>
       <h2 className={styles.View__title}>White paper</h2>
       <div className={styles.View__content}>
-        <Title value="DeadToken Migration Management"/>
+        <Title value="RecoverToken White Paper"/>
         <div className={styles.View__container}>
           <Document
             file={pdf}

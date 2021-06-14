@@ -21,28 +21,28 @@ const Navbar = () => {
       <Link
         to="/stacking"
         className={location.pathname === '/stacking' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="Stacking LP"
+        data-text="Staking Management"
       >
         <FontAwesomeIcon icon={faLayerGroup}/>
       </Link>
       <Link
         to="/migration"
         className={location.pathname === '/migration' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="Migration"
+        data-text="Migration Management"
       >
         <FontAwesomeIcon icon={faExchangeAlt}/>
       </Link>
       <Link
         to="/white-paper"
         className={location.pathname === '/white-paper' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="White paper"
+        data-text="RCVR White Paper"
       >
         <FontAwesomeIcon icon={faStickyNote}/>
       </Link>
       <Link
         to="/about"
         className={location.pathname === '/about' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="About stats"
+        data-text="RCVR Statistics"
       >
         <FontAwesomeIcon icon={faInfo}/>
       </Link>

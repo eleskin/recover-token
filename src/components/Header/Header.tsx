@@ -162,7 +162,7 @@ const Header = ({
             <Button
               type="secondary"
               onClick={connectWeb3}
-              disabled={!locked}
+              //disabled={!locked}
             >Connect</Button>
           </div>
         </div>

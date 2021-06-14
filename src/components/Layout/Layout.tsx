@@ -31,6 +31,8 @@ interface ILayout {
   riskystakedBalance: number;
   rewardBalance: number;
   riskyrewardBalance: number;
+  lptokenBalance: number;
+  balance: number;
 }
 
 const Layout = ({
@@ -39,6 +41,7 @@ const Layout = ({
                   setWindowWeb3,
                   web3Modal,
                   account,
+                  balance,
                   setAccount,
                   totalSafe,
                   totalRisky,
@@ -49,6 +52,7 @@ const Layout = ({
                   deadtokenBalance,
                   stakedBalance,
                   riskystakedBalance,
+                  lptokenBalance,
                   rewardBalance,
                   riskyrewardBalance
                 }: ILayout) => {
@@ -69,6 +73,8 @@ const Layout = ({
                   loading={loading}
                   setLoading={setLoading}
                   account={account}
+                  balance={balance}
+                  lptokenBalance={lptokenBalance}
                   setAccount={setAccount}
                   web3Modal={web3Modal}
                   windowWeb3={windowWeb3}

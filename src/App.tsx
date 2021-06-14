@@ -19,10 +19,10 @@ const App = () => {
   const [isVisibleNavbar, setIsVisibleNavbar] = useState(false);
   const [windowWeb3, setWindowWeb3]: any = useState(null);
   const [account, setAccount] = useState('');
-  const [totalSafe, setTotalSafe]: any = useState(501477.94116610421875);
-  const [totalRisky, setTotalRisky]: any = useState(503224.442710094300325863);
-  const [lastriskyrebase, setLastRiskyRebase]: any = useState('04/05/2021, 14:18:00');
-  const [lastsaferebase, setLastSafeRebase]: any = useState('04/05/2021, 14:30:39');
+  const [totalSafe, setTotalSafe]: any = useState(0);
+  const [totalRisky, setTotalRisky]: any = useState(0);
+  const [lastriskyrebase, setLastRiskyRebase]: any = useState('01/01/0000, 00:00:00');
+  const [lastsaferebase, setLastSafeRebase]: any = useState('01/01/0000, 00:00:00');
   const [networkId, setNetworkId] = useState('');
   const [lptokenBalance, setlpTokenBalance]: any = useState('');
   const [balance, setBalance]: any = useState(0);
@@ -251,10 +251,10 @@ const App = () => {
             const accounts = await window.web3.eth.getAccounts();
             const networkId = await window.web3.eth.net.getId();
             const account = accounts[0];
-            let _balance = 0;
-            let _stakedBalance = 0;
-            let _rewardBalance = 0;
-            let _riskyrewardBalance = 0;
+            let _balance;
+            let _stakedBalance
+            let _rewardBalance;
+            let _riskyrewardBalance;
             let _riskystakedBalance = 0;
             let _deadtokenbalance = 0;
             let _totalRisky = 0;
@@ -423,6 +423,8 @@ const App = () => {
           setWindowWeb3={setWindowWeb3}
           web3Modal={web3Modal}
           account={account}
+          balance={balance}
+          lptokenBalance={lptokenBalance}
           setAccount={setAccount}
           totalSafe={totalSafe}
           totalRisky={totalRisky}
