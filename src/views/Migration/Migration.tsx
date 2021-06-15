@@ -204,7 +204,7 @@ const Migration = ({
 
 
           <h1
-            style={{marginBottom: '20px'}} className={styles.View__content}>Migration Rules and Guidelines:</h1>
+            style={{marginBottom: '20px'}}>Migration Rules and Guidelines:</h1>
           <h3
             style={{marginBottom: '20px'}}>We are currently offering a migration from GOMIX and MXS tokens to RCVR. Before you proceed, please make sure you are aware of the following before proceeding:</h3>
           <h3
@@ -248,7 +248,7 @@ const Migration = ({
               marginBottom: '20px'
             }}>- Dont forgot to stake your RCVR to gain additional rewards!</h3>
 
-          <h1 className={styles.View__content}>Any questions please visit our Telegram channel for assistance</h1>
+          <h1>Any questions please visit our Telegram channel for assistance</h1>
         </div>
       </div>
       <Social/>

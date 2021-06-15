@@ -3,7 +3,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-gap: 30px;
-  background-size: 80%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -15,7 +15,7 @@
 }
 
 .View__content {
-  background: rgba(33, 33, 33, 0.9);
+  background: rgba(33, 33, 33, 0.5);
   /*box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);*/
   border-radius: 4px;
   height: 100%;
@@ -180,9 +180,6 @@
 }
 
 @media (max-width: 960px) {
-  .View {
-    background-size: 100%;
-  }
   .View__buttons_3 {
     grid-template-columns: repeat(3, 180px);
   }
