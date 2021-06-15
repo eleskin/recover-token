@@ -85,6 +85,21 @@ const Header = ({
     }
   };
   const loadBlockchainData = async () => {
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider, // required
+        options: {
+          infuraId: "INFURA_ID" // required
+        }
+      },
+    };
+
+    const web3Modal = new Web3Modal({
+      network: 'mainnet', // optional
+      cacheProvider: true, // optional
+      providerOptions // required
+    });
+
     const provider = await web3Modal.connect();
     const web3 = new Web3(provider);
     // Load account
@@ -146,26 +161,8 @@ const Header = ({
   };
 
   const connectWeb3 = async () => {
-    // await loadWeb3();
-    // await loadBlockchainData();
-    const providerOptions = {
-      walletconnect: {
-        package: WalletConnectProvider, // required
-        options: {
-          infuraId: "INFURA_ID" // required
-        }
-      },
-    };
-
-    const web3Modal = new Web3Modal({
-      network: 'mainnet', // optional
-      cacheProvider: true, // optional
-      providerOptions // required
-    });
-
-    const provider = await web3Modal.connect();
-
-    const web3 = new Web3(provider);
+    await loadWeb3();
+    await loadBlockchainData();
   };
 
   return (
