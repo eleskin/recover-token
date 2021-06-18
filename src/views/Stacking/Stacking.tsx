@@ -250,56 +250,6 @@ const Stacking = ({
     }
   };
 
-  const createLP01 = async () => {
-    try {
-      if (networkId == '56') {
-        const provider = await web3Modal.connect();
-        const web3: any = new Web3(provider);
-        const BN = web3.utils.BN;
-        let amount = parseInt(rcvrliq);
-        let ethtopay = 0;
-        ////Get the equivalent BNB/ETH required for the swap
-        const pancakeContract = await new windowWeb3.eth.Contract(pancake.abi, pancake.address);
-        const ethamount = await pancakeContract.methods.getAmountsIn((web3.utils.toWei(`${amount}`, 'ether')), ['0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c', '0x26d4552879cdcc32599e2ff1c1e2a438d5c5323e']).call();
-        console.log(ethamount[0]);
-        ethtopay = ethamount[0];
-        const lpContract = await new windowWeb3.eth.Contract(lp.abi, lp.address);
-
-        //const txHash = await lpcontract.methods.createLPManual(web3.utils.toWei(`${amount}`, 'ether')).send({ from: account, value: web3.utils.toWei('0.05', 'ether') })
-        const txHash = await lpContract.methods.createLPManual(web3.utils.toWei(`${amount}`, 'ether')).send({
-          from: account,
-          value: web3.utils.toWei(`${ethtopay}`, 'wei')
-        });
-        console.log(txHash);
-      } else {
-        console.log('wrong network');
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-  const approveRCVR = async () => {
-    try {
-      if (networkId == '56') {
-        setLoading(true);
-        const provider = await web3Modal.connect();
-        const web3 = new Web3(provider);
-
-        const maxAmount = new BigNumber(1).multipliedBy(new BigNumber(2).pow(256)).minus(1);
-        const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-        const txHash = await rvcContract.methods.approve(lp.address, maxAmount.toString(10)).send({from: account});
-
-        console.log(txHash.transactionHash);
-        setLoading(false);
-      } else {
-        console.log('wrong network');
-      }
-    } catch (e) {
-      console.log(e.message);
-      setLoading(false);
-    }
-  };
-
   return (
     <div className={styles.View} style={{backgroundImage: `url(${background})`}}>
       <h2 className={styles.View__title}>Staking Management</h2>
