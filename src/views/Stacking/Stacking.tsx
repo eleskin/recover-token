@@ -56,13 +56,13 @@ const Stacking = ({
 
   const createSafeStake = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3: any = new Web3(provider);
         const BN = web3.utils.BN;
         let amount = parseInt(stake);
 
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stkcontract = await new web3.eth.Contract(staking.abi, staking.address);
         const txHash = await stkcontract.methods.createSafeStake(web3.utils.toWei(`${amount}`, 'ether')).send({from: account});
         console.log(txHash.transactionHash);
       } else {
@@ -75,13 +75,13 @@ const Stacking = ({
   const removeStake = async () => {
     try {
       window.alert('Please Ensure that RCVR balance is the same as your staked amount before proceeding!');
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3: any = new Web3(provider);
         const BN = web3.utils.BN;
         let amount = parseInt(stake);
 
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stkcontract = await new web3.eth.Contract(staking.abi, staking.address);
         const txHash = await stkcontract.methods.removeStake(web3.utils.toWei(`${amount}`, 'ether')).send({from: account});
         console.log(txHash.transactionHash);
       } else {
@@ -93,10 +93,11 @@ const Stacking = ({
   };
   const getSafeRewards = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new  web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawTreasuryRewards(1).send({
           from: account,
           value: web3.utils.toWei('0.003', 'ether')
@@ -111,10 +112,11 @@ const Stacking = ({
   };
   const getTreasuryRewardsCompSafe = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawCompReward(1).send({
           from: account,
           value: web3.utils.toWei('0.003', 'ether')
@@ -130,13 +132,13 @@ const Stacking = ({
 
   const createRiskyStake = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3: any = new Web3(provider);
         const BN = web3.utils.BN;
         let amount = parseInt(riskystake);
 
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stkcontract = await new web3.eth.Contract(staking.abi, staking.address);
         const txHash = await stkcontract.methods.createRiskyStake(web3.utils.toWei(`${amount}`, 'ether')).send({from: account});
         console.log(txHash.transactionHash);
       } else {
@@ -149,13 +151,13 @@ const Stacking = ({
   const removeRiskyStake = async () => {
     try {
       window.alert('Please Ensure that RCVR balance is the same as your staked amount before proceeding!');
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3: any = new Web3(provider);
         const BN = web3.utils.BN;
         let amount = parseInt(riskystake);
 
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stkcontract = await new web3.eth.Contract(staking.abi, staking.address);
         const txHash = await stkcontract.methods.removeRiskyStake(web3.utils.toWei(`${amount}`, 'ether')).send({from: account});
         console.log(txHash.transactionHash);
       } else {
@@ -167,10 +169,11 @@ const Stacking = ({
   };
   const getRiskyRewards = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawTreasuryRewards(2).send({
           from: account,
           value: web3.utils.toWei('0.003', 'ether')
@@ -185,10 +188,11 @@ const Stacking = ({
   };
   const getTreasuryRewardsCompRisky = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawCompReward(2).send({
           from: account,
           value: web3.utils.toWei('0.003', 'ether')
@@ -205,10 +209,11 @@ const Stacking = ({
   const forceDistribute1 = async () => {   ////Risky Pool!
     try {
       window.alert('Please be aware there is a 0.02BNB Fee to force a rebase on the Risky Pool!');
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.Forcedistribute(true).send({
           from: account,
           value: web3.utils.toWei('0.02', 'ether')
@@ -225,11 +230,12 @@ const Stacking = ({
   const forceDistribute2 = async () => {
     try {
       window.alert('Please be aware there is a 0.01BNB Fee to force a rebase on the Safe Pool!');
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.Forcedistribute(false).send({
           from: account,
           value: web3.utils.toWei('0.01', 'ether')

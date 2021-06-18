@@ -11,8 +11,6 @@ import staking from '../../contracts/Staking.json';
 
 import {Link} from 'react-router-dom';
 import Web3 from 'web3';
-import Web3Modal from 'web3modal';
-import WalletConnectProvider from '@walletconnect/web3-provider';
 
 interface IHeader {
   isVisibleNavbar: boolean;
@@ -85,26 +83,11 @@ const Header = ({
     }
   };
   const loadBlockchainData = async () => {
-    const providerOptions = {
-      walletconnect: {
-        package: WalletConnectProvider, // required
-        options: {
-          infuraId: "INFURA_ID" // required
-        }
-      },
-    };
-
-    const web3Modal = new Web3Modal({
-      network: 'mainnet', // optional
-      cacheProvider: true, // optional
-      providerOptions // required
-    });
-
     const provider = await web3Modal.connect();
     const web3 = new Web3(provider);
     // Load account
-    const accounts = await window.web3.eth.getAccounts();
-    const networkId = await window.web3.eth.net.getId();
+    const accounts = await web3.eth.getAccounts();
+    const networkId: any = await web3.eth.net.getId();
     const account = accounts[0];
     let _balance = 0;
     let _stakedBalance = 0;
@@ -145,7 +128,7 @@ const Header = ({
     const riskyformatted = rdateObject.toLocaleString();
     ////////////////////////////////////////
 
-    setLocked(!windowWeb3.currentProvider._state.isUnlocked);
+    setLocked(!windowWeb3?.currentProvider._state.isUnlocked);
     setAccount(accounts[0]);
     setBalance(web3.utils.fromWei(String(_balance), 'ether'));
     setDeadTokenBalance(Number(web3.utils.fromWei(String(_deadtokenbalance), 'gwei')) * 10);

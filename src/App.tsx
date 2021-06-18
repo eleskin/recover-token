@@ -374,7 +374,7 @@ const App = () => {
     walletconnect: {
       package: WalletConnectProvider, // required
       options: {
-        //infuraId: "3e2412ff21a04fa79094facb7e20d56b" // required
+        infuraId: "3e2412ff21a04fa79094facb7e20d56b" // required
       }
     }
   };

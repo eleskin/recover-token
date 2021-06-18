@@ -14,6 +14,7 @@ import background from './img/Main_back.png';
 import Title from '../../components/Content/Title/Title';
 import Button from '../../components/Button/Button';
 import Social from '../../components/Social/Social';
+import staking from '../../contracts/Staking.json';
 
 interface IMigration {
   networkId: any;
@@ -40,13 +41,14 @@ const Migration = ({
 
   const approve = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         setLoading(true);
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
         const maxAmount = new BigNumber(1).multipliedBy(new BigNumber(2).pow(256)).minus(1);
-        const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
+        const deadtokenAbi: any = deadtoken.abi;
+        const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
         const txHash = await deadTokenContract.methods.approve(migration.address, maxAmount.toString(10)).send({from: account});
 
         console.log(txHash.transactionHash);
@@ -63,11 +65,12 @@ const Migration = ({
   const migrate = async () => {
     try {
       window.alert('Please Ensure you have Approved interaction with GOMIX before proceeding! A 100RCVR wallet balance is required for the Migration.');
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationContract = await new window.web3.eth.Contract(migration.abi, migration.address);
+        const migrationAbi: any = migration.abi;
+        const migrationContract = await new web3.eth.Contract(migrationAbi, migration.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract.methods.migratePaid().send({
           from: account,
@@ -87,11 +90,12 @@ const Migration = ({
   const claim = async () => {
     try {
 
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationContract = await new window.web3.eth.Contract(migration.abi, migration.address);
+        const migrationAbi: any = migration.abi;
+        const migrationContract = await new web3.eth.Contract(migrationAbi, migration.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract.methods.collectRCVR().send({from: account});
         //Free Migration!
@@ -108,11 +112,12 @@ const Migration = ({
   const claim_FAIR = async () => {
     try {
 
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationContract_FAIR = await new window.web3.eth.Contract(migration_FAIR.abi, migration_FAIR.address);
+        const migrationAbi: any = migration_FAIR.abi;
+        const migrationContract_FAIR = await new web3.eth.Contract(migrationAbi, migration_FAIR.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract_FAIR.methods.collectRCVR().send({from: account});
         //Free Migration!
@@ -129,11 +134,12 @@ const Migration = ({
 
   const migrateprivate = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationContract = await new window.web3.eth.Contract(migration.abi, migration.address);
+        const migrationAbi: any = migration.abi;
+        const migrationContract = await new web3.eth.Contract(migrationAbi, migration.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract.methods.migratePrivate().send({
           from: account,
@@ -152,11 +158,12 @@ const Migration = ({
   };
   const migrateprivate_FAIR = async () => {
     try {
-      if (networkId == '56') {
+      if (networkId) {
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationContract_FAIR = await new window.web3.eth.Contract(migration_FAIR.abi, migration_FAIR.address);
+        const migrationAbi: any = migration_FAIR.abi;
+        const migrationContract_FAIR = await new web3.eth.Contract(migrationAbi, migration_FAIR.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract_FAIR.methods.migratePrivate().send({
           from: account,
