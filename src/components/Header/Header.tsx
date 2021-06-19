@@ -99,11 +99,13 @@ const Header = ({
     let _riskystakedBalance = 0;
     let _lastsaferebase = 0;
     let _lastriskyrebase = 0;
-    //let _rewardBalance = 0
-    if (networkId == '56') {
-      const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-      const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-      const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+    if (networkId) {
+      const deadtokenAbi: any = deadtoken.abi;
+      const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+      const rcvrAbi: any = rcvr.abi;
+      const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+      const stakingAbi: any = staking.abi;
+      const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
       _balance = await rvcContract.methods.balanceOf(account).call();
       _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
       _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call();
