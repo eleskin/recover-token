@@ -67,14 +67,10 @@ const Header = ({
   const loadWeb3 = async () => {
     try {
       if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum);
         setWindowWeb3(new Web3(window.ethereum));
-        //window.web3 = new Web3(window.ethereum)
         await window.ethereum.enable();
-      } else if (window.web3) {
-        window.web3 = new Web3(window.web3.currentProvider);
-        setWindowWeb3(new Web3(window.web3.currentProvider));
-        //  window.web3 = new Web3(window.web3.currentProvider)
+      } else if (windowWeb3) {
+        setWindowWeb3(new Web3(windowWeb3.currentProvider));
       } else {
         // DO NOTHING...
       }
@@ -99,26 +95,30 @@ const Header = ({
     let _riskystakedBalance = 0;
     let _lastsaferebase = 0;
     let _lastriskyrebase = 0;
-    if (networkId) {
-      const deadtokenAbi: any = deadtoken.abi;
-      const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
-      const rcvrAbi: any = rcvr.abi;
-      const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
-      const stakingAbi: any = staking.abi;
-      const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
-      _balance = await rvcContract.methods.balanceOf(account).call();
-      _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
-      _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call();
-      _riskystakedBalance = await stkcontract.methods.stakeOf(account, 2).call();
-      _rewardBalance = await stkcontract.methods.rewardOf(account).call();
-      _riskyrewardBalance = await stkcontract.methods.rewardOfRiskyRewards(account).call();
-      _totalSafe = await stkcontract.methods.totalStakes(1).call();
-      _totalRisky = await stkcontract.methods.totalStakes(2).call();
-      _lastsaferebase = await stkcontract.methods.NextRebase(1).call();
-      _lastriskyrebase = await stkcontract.methods.NextRebase(2).call();
-      temp = web3.utils.fromWei(String(_deadtokenbalance), 'ether');
-      temp2 = parseInt(temp);
-      temp2 = temp2 * 100000000;
+    try {
+      if (networkId) {
+        const deadtokenAbi: any = deadtoken.abi;
+        const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+        const rcvrAbi: any = rcvr.abi;
+        const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+        const stakingAbi: any = staking.abi;
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
+        _balance = await rvcContract.methods.balanceOf(account).call();
+        _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
+        _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call();
+        _riskystakedBalance = await stkcontract.methods.stakeOf(account, 2).call();
+        _rewardBalance = await stkcontract.methods.rewardOf(account).call();
+        _riskyrewardBalance = await stkcontract.methods.rewardOfRiskyRewards(account).call();
+        _totalSafe = await stkcontract.methods.totalStakes(1).call();
+        _totalRisky = await stkcontract.methods.totalStakes(2).call();
+        _lastsaferebase = await stkcontract.methods.NextRebase(1).call();
+        _lastriskyrebase = await stkcontract.methods.NextRebase(2).call();
+        temp = web3.utils.fromWei(String(_deadtokenbalance), 'ether');
+        temp2 = parseInt(temp);
+        temp2 = temp2 * 100000000;
+      }
+    } catch (error) {
+      console.error(error);
     }
     // Convert Unixtimestamps to readable dates
     temp = _deadtokenbalance;
@@ -164,7 +164,7 @@ const Header = ({
             <Button
               type="secondary"
               onClick={connectWeb3}
-              //disabled={!locked}
+              disabled={!locked}
             >Connect</Button>
           </div>
         </div>

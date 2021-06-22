@@ -44,14 +44,18 @@ const App = () => {
         const accounts = await windowWeb3.eth.getAccounts();
         if (typeof accounts != 'undefined' && accounts.length > 0) {
           const networkId = await windowWeb3.eth.net.getId();
-          if (networkId == '56') {
+          if (networkId) {
             const account = accounts[0];
             const provider = await web3Modal.connect();
             const web3 = new Web3(provider);
-            const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-            const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-            const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
-            const lpcontract = await new window.web3.eth.Contract(liquidity.abi, liquidity.address);
+            const rcvrAbi: any = rcvr.abi;
+            const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+            const deadtokenAbi: any = deadtoken.abi;
+            const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+            const stakingAbi: any = staking.abi;
+            const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
+            const liquidityAbi: any = liquidity.abi;
+            const lpcontract = await new web3.eth.Contract(liquidityAbi, liquidity.address);
             const _balance = await rvcContract.methods.balanceOf(account).call();
             const _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
             const _lptokenbalance = await lpcontract.methods.balanceOf(account).call();
@@ -109,16 +113,19 @@ const App = () => {
           const accounts = await windowWeb3.eth.getAccounts();
           if (typeof accounts != 'undefined' && accounts.length > 0) {
             const networkId = await windowWeb3.eth.net.getId();
-            console.log(networkId);
 
-            if (networkId == '56') {
+            if (networkId) {
               const account = accounts[0];
               const provider = await web3Modal.connect();
               const web3 = new Web3(provider);
-              const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-              const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-              const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
-              const lpcontract = await new window.web3.eth.Contract(liquidity.abi, liquidity.address);
+              const deadtokenAbi: any = deadtoken.abi;
+              const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+              const rcvrAbi: any = rcvr.abi;
+              const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+              const stakingAbi: any = staking.abi;
+              const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
+              const liquidityAbi: any = liquidity.abi;
+              const lpcontract = await new web3.eth.Contract(liquidityAbi, liquidity.address);
               const _balance = await rvcContract.methods.balanceOf(account).call();
               const _lptokenbalance = await lpcontract.methods.balanceOf(account).call();
               const _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
@@ -182,10 +189,13 @@ const App = () => {
             const provider = await web3Modal.connect();
             const web3 = new Web3(provider);
             let _balance = 0;
-            if (networkId == '56') {
-              const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-              const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-              const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+            if (networkId) {
+              const deadtokenAbi: any = deadtoken.abi;
+              const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+              const rcvrAbi: any = rcvr.abi;
+              const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+              const stakingAbi: any = staking.abi;
+              const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
               const _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call();
               const _riskystakedBalance = await stkcontract.methods.stakeOf(account, 2).call();
               const _totalSafe = await stkcontract.methods.totalStakes(1).call();
@@ -242,14 +252,12 @@ const App = () => {
       } else {
         try {
           if (window.ethereum) {
-            window.web3 = new Web3(window.ethereum);
-
             setWindowWeb3(new Web3(window.ethereum));
             const provider = await web3Modal.connect();
             const web3 = new Web3(provider);
             // Load account
-            const accounts = await window.web3.eth.getAccounts();
-            const networkId = await window.web3.eth.net.getId();
+            const accounts = await web3.eth.getAccounts();
+            const networkId: any = await web3.eth.net.getId();
             const account = accounts[0];
             let _balance;
             let _stakedBalance
@@ -261,10 +269,13 @@ const App = () => {
             let _totalSafe = 0;
             let _lastsaferebase = 0;
             let _lastriskyrebase = 0;
-            if (networkId == '56') {
-              const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-              const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-              const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+            if (networkId) {
+              const deadtokenAbi: any = deadtoken.abi;
+              const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+              const rcvrAbi: any = rcvr.abi;
+              const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+              const stakingAbi: any = staking.abi;
+              const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
               _balance = await rvcContract.methods.balanceOf(account).call();
               _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
               _rewardBalance = await stkcontract.methods.rewardOf(account).call();
@@ -300,14 +311,13 @@ const App = () => {
             setLastSafeRebase(safeformatted);
             setLastRiskyRebase(riskyformatted);
 
-          } else if (window.web3) {
-            window.web3 = new Web3(window.web3.currentProvider);
-            setWindowWeb3(new Web3(window.web3.currentProvider));
+          } else if (windowWeb3) {
+            setWindowWeb3(new Web3(windowWeb3.currentProvider));
             const provider = await web3Modal.connect();
             const web3 = new Web3(provider);
             // Load account
-            const accounts = await window.web3.eth.getAccounts();
-            const networkId = await window.web3.eth.net.getId();
+            const accounts = await web3.eth.getAccounts();
+            const networkId: any = await web3.eth.net.getId();
             const account = accounts[0];
             let _balance = 0;
             let _stakedBalance = 0;
@@ -319,10 +329,13 @@ const App = () => {
             let _riskystakedBalance = 0;
             let _lastriskyrebase = 0;
             let _lastsaferebase = 0;
-            if (networkId == '56') {
-              const deadTokenContract = await new window.web3.eth.Contract(deadtoken.abi, deadtoken.address);
-              const rvcContract = await new windowWeb3.eth.Contract(rcvr.abi, rcvr.address);
-              const stkcontract = await new window.web3.eth.Contract(staking.abi, staking.address);
+            if (networkId) {
+              const deadtokenAbi: any = deadtoken.abi;
+              const deadTokenContract = await new web3.eth.Contract(deadtokenAbi, deadtoken.address);
+              const rcvrAbi: any = rcvr.abi;
+              const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
+              const stakingAbi: any = staking.abi;
+              const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
               _balance = await rvcContract.methods.balanceOf(account).call();
               _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call();
               _stakedBalance = await stkcontract.methods.balanceOf(account, 1).call();
