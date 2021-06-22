@@ -14,7 +14,6 @@ import background from './img/Main_back.png';
 import Title from '../../components/Content/Title/Title';
 import Button from '../../components/Button/Button';
 import Social from '../../components/Social/Social';
-import staking from '../../contracts/Staking.json';
 
 interface IMigration {
   networkId: any;
@@ -116,8 +115,8 @@ const Migration = ({
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
 
-        const migrationAbi: any = migration_FAIR.abi;
-        const migrationContract_FAIR = await new web3.eth.Contract(migrationAbi, migration_FAIR.address);
+        const migration_FAIRAbi: any = migration_FAIR.abi;
+        const migrationContract_FAIR = await new web3.eth.Contract(migration_FAIRAbi, migration_FAIR.address);
         //////Fee to add for liquidity and time
         const txHash = await migrationContract_FAIR.methods.collectRCVR().send({from: account});
         //Free Migration!

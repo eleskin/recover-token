@@ -97,7 +97,7 @@ const Stacking = ({
         const provider = await web3Modal.connect();
         const web3 = new Web3(provider);
         const stakingAbi: any = staking.abi;
-        const stkcontract = await new  web3.eth.Contract(stakingAbi, staking.address);
+        const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawTreasuryRewards(1).send({
           from: account,
           value: web3.utils.toWei('0.003', 'ether')
