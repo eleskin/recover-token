@@ -387,7 +387,12 @@ const App = () => {
     walletconnect: {
       package: WalletConnectProvider, // required
       options: {
-        infuraId: "3e2412ff21a04fa79094facb7e20d56b" // required
+        rpc: {
+          1: 'https://bsc-dataseed.binance.org/',
+          3: 'https://bsc-dataseed1.defibit.io/',
+          100: 'https://bsc-dataseed1.ninicoin.io/'
+          // ...
+        },
       }
     }
   };
