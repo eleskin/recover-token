@@ -99,6 +99,7 @@ const Header = ({
     let _lastsaferebase = 0;
     let _lastriskyrebase = 0;
     let _lptokenbalance = 0;
+    console.log(networkId)
     try {
       if (networkId) {
         const deadtokenAbi: any = deadtoken.abi;

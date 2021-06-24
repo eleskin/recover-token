@@ -385,17 +385,18 @@ const App = () => {
 
   const providerOptions = {
     walletconnect: {
-      package: WalletConnectProvider, // required
+      package: WalletConnectProvider,
       options: {
         rpc: {
-          1: 'https://bsc-dataseed.binance.org/',
-          3: 'https://bsc-dataseed1.defibit.io/',
-          100: 'https://bsc-dataseed1.ninicoin.io/'
-          // ...
+          56: 'https://bsc-dataseed.binance.org/'
         },
+        network: 'binance',
+        chainId: 56,
+        infuraId: "3e2412ff21a04fa79094facb7e20d56b",
       }
     }
   };
+
   const web3Modal = new Web3Modal({
     cacheProvider: true, // optional
     providerOptions // required
