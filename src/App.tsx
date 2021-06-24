@@ -24,9 +24,9 @@ const App = () => {
   const [lastriskyrebase, setLastRiskyRebase]: any = useState('01/01/0000, 00:00:00');
   const [lastsaferebase, setLastSafeRebase]: any = useState('01/01/0000, 00:00:00');
   const [networkId, setNetworkId] = useState('');
-  const [lptokenBalance, setlpTokenBalance]: any = useState('');
+  const [lptokenBalance, setlpTokenBalance]: any = useState(0);
   const [balance, setBalance]: any = useState(0);
-  const [deadtokenBalance, setDeadTokenBalance]: any = useState('');
+  const [deadtokenBalance, setDeadTokenBalance]: any = useState(0);
   const [stakedBalance, setStakedBalance]: any = useState(0);
   const [riskystakedBalance, setRiskyStakedBalance]: any = useState(0);
   const [rewardBalance, setRewardBalance]: any = useState(0);
