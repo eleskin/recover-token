@@ -11,6 +11,7 @@ import staking from '../../contracts/Staking.json';
 
 import {Link} from 'react-router-dom';
 import Web3 from 'web3';
+import liquidity from '../../contracts/Liquidity.json';
 
 interface IHeader {
   isVisibleNavbar: boolean;
@@ -36,6 +37,7 @@ interface IHeader {
   setRiskyRewardBalance: Dispatch<any>;
   locked: boolean;
   setLocked: Dispatch<boolean>;
+  setlpTokenBalance: Dispatch<any>;
 }
 
 const Header = ({
@@ -61,7 +63,8 @@ const Header = ({
                   setRewardBalance,
                   setRiskyRewardBalance,
                   locked,
-                  setLocked
+                  setLocked,
+                  setlpTokenBalance
                 }: IHeader) => {
 
   const loadWeb3 = async () => {
@@ -95,6 +98,7 @@ const Header = ({
     let _riskystakedBalance = 0;
     let _lastsaferebase = 0;
     let _lastriskyrebase = 0;
+    let _lptokenbalance = 0;
     try {
       if (networkId) {
         const deadtokenAbi: any = deadtoken.abi;
@@ -103,16 +107,19 @@ const Header = ({
         const rvcContract = await new web3.eth.Contract(rcvrAbi, rcvr.address);
         const stakingAbi: any = staking.abi;
         const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
-        _balance = await rvcContract.methods.balanceOf(account).call() || 0;
-        _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call() || 0;
-        _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call() || 0;
-        _riskystakedBalance = await stkcontract.methods.stakeOf(account, 2).call() || 0;
-        _rewardBalance = await stkcontract.methods.rewardOf(account).call() || 0;
-        _riskyrewardBalance = await stkcontract.methods.rewardOfRiskyRewards(account).call() || 0;
-        _totalSafe = await stkcontract.methods.totalStakes(1).call() || 0;
-        _totalRisky = await stkcontract.methods.totalStakes(2).call() || 0;
-        _lastsaferebase = await stkcontract.methods.NextRebase(1).call() || 0;
-        _lastriskyrebase = await stkcontract.methods.NextRebase(2).call() || 0;
+        const liquidityAbi: any = liquidity.abi;
+        const lpcontract = await new web3.eth.Contract(liquidityAbi, liquidity.address);
+        // _balance = await rvcContract.methods.balanceOf(account).call() || 0;
+        // _deadtokenbalance = await deadTokenContract.methods.balanceOf(account).call() || 0;
+        // _stakedBalance = await stkcontract.methods.stakeOf(account, 1).call() || 0;
+        // _riskystakedBalance = await stkcontract.methods.stakeOf(account, 2).call() || 0;
+        // _rewardBalance = await stkcontract.methods.rewardOf(account).call() || 0;
+        // _riskyrewardBalance = await stkcontract.methods.rewardOfRiskyRewards(account).call() || 0;
+        // _totalSafe = await stkcontract.methods.totalStakes(1).call() || 0;
+        // _totalRisky = await stkcontract.methods.totalStakes(2).call() || 0;
+        // _lastsaferebase = await stkcontract.methods.NextRebase(1).call() || 0;
+        // _lastriskyrebase = await stkcontract.methods.NextRebase(2).call() || 0;
+        _lptokenbalance = await lpcontract.methods.balanceOf(account).call() || 0;
         temp = web3.utils.fromWei(String(_deadtokenbalance), 'ether');
         temp2 = parseInt(temp);
         temp2 = temp2 * 100000000;
@@ -140,6 +147,7 @@ const Header = ({
     setRiskyRewardBalance(web3.utils.fromWei(String(_riskyrewardBalance), 'ether'));
     setTotalRisky(web3.utils.fromWei(String(_totalRisky), 'ether'));
     setTotalSafe(web3.utils.fromWei(String(_totalSafe), 'ether'));
+    setlpTokenBalance(parseInt(web3.utils.fromWei(String(_lptokenbalance), 'ether')));
     setLastSafeRebase(safeformatted);
     setLastRiskyRebase(riskyformatted);
     setNetworkId(networkId);

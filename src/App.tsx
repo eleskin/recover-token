@@ -428,6 +428,7 @@ const App = () => {
           setStakedBalance={setStakedBalance}
           temp={temp}
           temp2={temp2}
+          setlpTokenBalance={setlpTokenBalance}
         />
         <Layout
           isVisibleNavbar={isVisibleNavbar}
