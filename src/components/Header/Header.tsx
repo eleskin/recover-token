@@ -25,8 +25,8 @@ interface IHeader {
   setTotalRisky: Dispatch<any>;
   setLastRiskyRebase: Dispatch<any>;
   setLastSafeRebase: Dispatch<any>;
-  networkId: string;
-  setNetworkId: Dispatch<string>;
+  networkId: number;
+  setNetworkId: Dispatch<number>;
   temp: any;
   temp2: number;
   setBalance: Dispatch<any>;

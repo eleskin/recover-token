@@ -24,8 +24,8 @@ interface ILayout {
   totalRisky: number;
   lastsaferebase: string;
   lastriskyrebase: string;
-  networkId: string;
-  setNetworkId: Dispatch<string>;
+  networkId: number;
+  setNetworkId: Dispatch<number>;
   deadtokenBalance: string;
   stakedBalance: number;
   riskystakedBalance: number;

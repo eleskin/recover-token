@@ -23,7 +23,7 @@ const App = () => {
   const [totalRisky, setTotalRisky]: any = useState(0);
   const [lastriskyrebase, setLastRiskyRebase]: any = useState('01/01/0000, 00:00:00');
   const [lastsaferebase, setLastSafeRebase]: any = useState('01/01/0000, 00:00:00');
-  const [networkId, setNetworkId] = useState('');
+  const [networkId, setNetworkId] = useState(0);
   const [lptokenBalance, setlpTokenBalance]: any = useState(0);
   const [balance, setBalance]: any = useState(0);
   const [deadtokenBalance, setDeadTokenBalance]: any = useState(0);
@@ -37,13 +37,34 @@ const App = () => {
   let temp: any = '';
   let temp2: any = 0.0;
 
+  const providerOptions = {
+    walletconnect: {
+      package: WalletConnectProvider,
+      options: {
+        rpc: {
+          56: 'https://bsc-dataseed.binance.org/'
+        },
+        network: 'binance',
+        // chainId: 56,
+        infuraId: "3e2412ff21a04fa79094facb7e20d56b",
+      }
+    }
+  };
+
+  const web3Modal = new Web3Modal({
+    cacheProvider: true, // optional
+    providerOptions // required
+  });
+
   useEffect(() => {
-    const effectFunc = async () => {
+    (async () => {
+      const provider = await web3Modal.connect();
+      const web3 = new Web3(provider);
       // const metamaskInstalled = typeof windowWeb3 !== 'undefined'
-      if (windowWeb3) {
-        const accounts = await windowWeb3.eth.getAccounts();
+      if (web3) {
+        const accounts = await web3.eth.getAccounts();
         if (typeof accounts != 'undefined' && accounts.length > 0) {
-          const networkId = await windowWeb3.eth.net.getId();
+          const networkId = await web3.eth.net.getId();
           if (networkId) {
             const account = accounts[0];
             const provider = await web3Modal.connect();
@@ -88,7 +109,7 @@ const App = () => {
             setRiskyRewardBalance(web3.utils.fromWei(String(_riskyrewardBalance), 'ether'));
             setTotalRisky(web3.utils.fromWei(String(_totalRisky), 'ether'));
             setTotalSafe(web3.utils.fromWei(String(_totalSafe), 'ether'));
-            setLocked(!windowWeb3.currentProvider._state.isUnlocked);
+            setLocked(!windowWeb3?.currentProvider._state.isUnlocked);
             setNetworkId(networkId);
             setLastSafeRebase(safeformatted);
             setLastRiskyRebase(riskyformatted);
@@ -107,12 +128,12 @@ const App = () => {
           setRiskyStakedBalance(0);
           setRewardBalance(0);
           setRiskyRewardBalance(0);
-          setLocked(!windowWeb3.currentProvider._state.isUnlocked);
+          setLocked(!windowWeb3?.currentProvider._state.isUnlocked);
         }
-        window.ethereum.on('networkChanged', async function (netId: any) {
-          const accounts = await windowWeb3.eth.getAccounts();
+        window.ethereum?.on('networkChanged', async function (netId: any) {
+          const accounts = await web3.eth.getAccounts();
           if (typeof accounts != 'undefined' && accounts.length > 0) {
-            const networkId = await windowWeb3.eth.net.getId();
+            const networkId = await web3.eth.net.getId();
 
             if (networkId) {
               const account = accounts[0];
@@ -181,9 +202,9 @@ const App = () => {
               setLastRiskyRebase(0);
             }
           }
-          setNetworkId(netId);
+          setNetworkId(networkId);
         });
-        window.ethereum.on('accountsChanged', async function (accounts: any) {
+        window.ethereum?.on('accountsChanged', async function (accounts: any) {
           if (typeof accounts !== 'undefined' && accounts.length > 0) {
             const account = accounts[0];
             const provider = await web3Modal.connect();
@@ -232,7 +253,7 @@ const App = () => {
             }
             setAccount(accounts[0]);
             setBalance(web3.utils.fromWei(String(_balance), 'ether'));
-            setLocked(!windowWeb3.currentProvider._state.isUnlocked);
+            setLocked(!windowWeb3?.currentProvider._state.isUnlocked);
           } else {
             setWindowWeb3(null);
             setAccount('');
@@ -374,33 +395,12 @@ const App = () => {
           console.log(e.message);
         }
       }
-    };
-
-    effectFunc();
+    })();
   }, [windowWeb3]);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(true), 2000);
   }, []);
-
-  const providerOptions = {
-    walletconnect: {
-      package: WalletConnectProvider,
-      options: {
-        rpc: {
-          56: 'https://bsc-dataseed.binance.org/'
-        },
-        network: 'binance',
-        chainId: 56,
-        infuraId: "3e2412ff21a04fa79094facb7e20d56b",
-      }
-    }
-  };
-
-  const web3Modal = new Web3Modal({
-    cacheProvider: true, // optional
-    providerOptions // required
-  });
 
   return (
     <BrowserRouter>
