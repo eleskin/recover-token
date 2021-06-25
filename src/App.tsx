@@ -46,7 +46,7 @@ const App = () => {
         },
         network: 'binance',
         // chainId: 56,
-        infuraId: "3e2412ff21a04fa79094facb7e20d56b",
+        infuraId: '3e2412ff21a04fa79094facb7e20d56b',
       }
     }
   };
@@ -58,8 +58,7 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      const provider = await web3Modal.connect();
-      const web3 = new Web3(provider);
+      const web3 = new Web3(Web3.givenProvider || 'https://bsc-dataseed.binance.org/');
       // const metamaskInstalled = typeof windowWeb3 !== 'undefined'
       if (web3) {
         const accounts = await web3.eth.getAccounts();
@@ -281,7 +280,7 @@ const App = () => {
             const networkId: any = await web3.eth.net.getId();
             const account = accounts[0];
             let _balance;
-            let _stakedBalance
+            let _stakedBalance;
             let _rewardBalance;
             let _riskyrewardBalance;
             let _riskystakedBalance = 0;
