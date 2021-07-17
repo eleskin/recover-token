@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 import {Link, useLocation} from 'react-router-dom';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faLayerGroup, faExchangeAlt, faInfo, faHome} from '@fortawesome/free-solid-svg-icons';
+import {faLayerGroup, faExchangeAlt, faInfo, faHome, faMapMarkedAlt} from '@fortawesome/free-solid-svg-icons';
 import {faStickyNote} from '@fortawesome/free-regular-svg-icons';
 
 const Navbar = () => {
@@ -45,6 +45,13 @@ const Navbar = () => {
         data-text="Rug Oracle and Stats"
       >
         <FontAwesomeIcon icon={faInfo}/>
+      </Link>
+      <Link
+        to="/roadmap"
+        className={location.pathname === '/roadmap' ? styles.Navbar__link_active : styles.Navbar__link}
+        data-text="Roadmap"
+      >
+        <FontAwesomeIcon icon={faMapMarkedAlt}/>
       </Link>
     </nav>
   );

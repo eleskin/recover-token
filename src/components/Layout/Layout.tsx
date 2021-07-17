@@ -11,6 +11,7 @@ import Paper from '../../views/Paper/Paper';
 import About from '../../views/About/About';
 import {Dispatch, useState} from 'react';
 import Home from '../../views/Home/Home';
+import Roadmap from '../../views/Roadmap/Roadmap';
 
 interface ILayout {
   isVisibleNavbar: boolean;
@@ -106,6 +107,7 @@ const Layout = ({
                   lastriskyrebase={lastriskyrebase}
                 />
               </Route>
+              <Route exact path="/roadmap"><Roadmap/></Route>
               <Route exact path="*"><Redirect to="/"/></Route>
             </Switch>
           </div>
