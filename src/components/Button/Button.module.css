@@ -67,7 +67,7 @@
 
 .Button__secondary {
   color: #292929;
-  background-color: rgba(68, 133, 252, 0.06);
+background-color: rgba(68, 133, 252, 0.06);
   border: 2px solid #4485fc;
 }
 
@@ -84,12 +84,13 @@
 
 .Button__danger {
   color: #f5f5f5;
-  background: rgba(252, 117, 93, 0.06);
+  background: rgba(252, 117, 93, 1);
   border: 2px solid #FC755D;
 }
 
 .Button__danger:hover {
   background-color: #FC755D;
+  background-color: rgba(68, 133, 252, 0.06);
   color: #f5f5f5;
   box-shadow: 0 4px 8px 0 rgba(252, 117, 93, 0.2);
 }
@@ -101,13 +102,14 @@
 
 .Button__success {
   color: #f5f5f5;
-  background: rgba(134, 176, 39, 0.06);
+  background: rgba(134, 176, 39, 1);
   border: 2px solid #86B027;
 }
 
 .Button__success:hover {
   background-color: #86B027;
   color: #f5f5f5;
+  background-color: rgba(68, 133, 252, 0.06);
   box-shadow: 0 4px 8px 0 rgba(134, 176, 39, 0.2);
 }
 

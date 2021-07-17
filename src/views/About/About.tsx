@@ -2,7 +2,7 @@ import styles from '../Views.module.css';
 
 import Social from '../../components/Social/Social';
 import Title from '../../components/Content/Title/Title';
-import background from '../Migration/img/Main_back.png';
+import background from '../About/img/stats.png';
 
 interface IAbout {
   totalSafe: number;

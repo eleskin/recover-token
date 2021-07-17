@@ -1,96 +1,87 @@
 {
     "abi": [
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [],
-		"name": "collectRCVR",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
+		"name": "canswap",
+		"outputs": [
 			{
-				"name": "_onoroff",
+				"name": "",
 				"type": "bool"
 			}
 		],
-		"name": "EnableCascading",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "charitytotal",
+		"outputs": [
 			{
-				"name": "_onoff",
-				"type": "bool"
+				"name": "",
+				"type": "uint256"
 			}
 		],
-		"name": "enableDeadTokenBurn",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "RCVRAddress",
+		"outputs": [
 			{
-				"name": "_onoff",
-				"type": "bool"
+				"name": "",
+				"type": "address"
 			}
 		],
-		"name": "enableDisableFreeMigration",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "burntokens",
+		"outputs": [
 			{
-				"name": "OnorOff",
+				"name": "",
 				"type": "bool"
 			}
 		],
-		"name": "enableDisableMigration",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "USDTenable",
+		"outputs": [
 			{
-				"name": "_onoff",
+				"name": "",
 				"type": "bool"
 			}
 		],
-		"name": "enableLimiter",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "rcvrlpcontract",
+		"outputs": [
 			{
-				"name": "OnorOff",
-				"type": "bool"
+				"name": "",
+				"type": "address"
 			}
 		],
-		"name": "enablePaidDisableMigration",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -108,89 +99,51 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "globalconverstionrate",
+		"outputs": [
 			{
-				"name": "option",
-				"type": "int256"
-			},
-			{
-				"name": "_blockedaddress",
-				"type": "address"
-			},
-			{
-				"name": "_onoroff",
-				"type": "bool"
-			}
-		],
-		"name": "manageBlockedAddresses",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "option",
-				"type": "uint256"
-			},
-			{
-				"name": "_onoroff",
-				"type": "bool"
-			}
-		],
-		"name": "manageLPRewards",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_victim",
-				"type": "address"
-			},
-			{
-				"name": "_privateamount",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "managePrivateRugVictims",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "enableRCVRInsurance",
+		"outputs": [
 			{
-				"name": "option",
-				"type": "int256"
-			},
-			{
-				"name": "_whitelist",
-				"type": "address"
-			},
-			{
-				"name": "_onoroff",
+				"name": "",
 				"type": "bool"
 			}
 		],
-		"name": "manageWhiteListAddresses",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "oracleaddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": false,
 		"inputs": [],
-		"name": "migrateFree",
+		"name": "autoCollectRCVR",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -206,238 +159,74 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [],
-		"name": "migratePrivate",
-		"outputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "renounceOwnership",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "returnRCVRTokensAll",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
+		"name": "getRugCount",
+		"outputs": [
 			{
-				"name": "_amountOfRCVR",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "returnRCVRTokensAmount",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_burnaddress",
-				"type": "address"
-			}
-		],
-		"name": "setBurnAddress",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "Rate",
-				"type": "uint256"
-			}
-		],
-		"name": "setConversionRate",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_onoff",
-				"type": "bool"
-			}
-		],
-		"name": "setEnableInsurance",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_lpcontract",
-				"type": "address"
-			}
-		],
-		"name": "setLPAddress",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "option",
-				"type": "uint256"
-			},
-			{
-				"name": "_onoroff",
-				"type": "bool"
-			},
-			{
-				"name": "_conversionrate",
-				"type": "uint256"
-			}
-		],
-		"name": "setMinowParams",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "RCVRAddress_",
-				"type": "address"
-			}
-		],
-		"name": "setRCVRAddress",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_balancerequired",
-				"type": "uint256"
-			}
-		],
-		"name": "setRCVRCost",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_tokenSwapLimit",
-				"type": "uint256"
-			}
-		],
-		"name": "setTokenSwapLimit",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "TokenToBeConverted_",
-				"type": "address"
-			},
-			{
-				"name": "conversionrate_",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenname_",
-				"type": "string"
-			}
-		],
-		"name": "setTokenToBeConverted",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "withdrawETH",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "previousOwner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "OwnershipTransferred",
-		"type": "event"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "blockaftermigration",
+		"name": "globalcharityenabled",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "isAlreadyVesting",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "transfertype",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "globalrate",
 		"outputs": [
 			{
 				"name": "",
@@ -451,21 +240,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "burnaddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "burntokens",
+		"name": "limitbyRCVR",
 		"outputs": [
 			{
 				"name": "",
@@ -501,7 +276,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "cascadepercentage",
+		"name": "paidmigrationenabled",
 		"outputs": [
 			{
 				"name": "",
@@ -515,7 +290,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "directpayout",
+		"name": "blockaftermigration",
 		"outputs": [
 			{
 				"name": "",
@@ -529,7 +304,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "enableminowsupport",
+		"name": "usedecimalmultiplication",
 		"outputs": [
 			{
 				"name": "",
@@ -543,7 +318,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "enableRCVRInsurance",
+		"name": "privatemigrationenabled",
 		"outputs": [
 			{
 				"name": "",
@@ -557,7 +332,173 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "enablesmallpayouts",
+		"name": "rugcount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "lpcheck",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "option",
+				"type": "uint256"
+			},
+			{
+				"name": "_USDT",
+				"type": "address"
+			},
+			{
+				"name": "value",
+				"type": "uint256"
+			},
+			{
+				"name": "_enable",
+				"type": "bool"
+			}
+		],
+		"name": "configParams",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "privateusdt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_onoff",
+				"type": "bool"
+			}
+		],
+		"name": "enableLimiter",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimalmultiple",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tokeninfo",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "classicredemtion",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_scamtoken",
+				"type": "address"
+			}
+		],
+		"name": "addRugToList",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "charityamount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_amountOfRCVR",
+				"type": "uint256"
+			}
+		],
+		"name": "returnRCVRTokensAmount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "whitelistenabled",
 		"outputs": [
 			{
 				"name": "",
@@ -585,7 +526,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "freemigration",
+		"name": "directpayout",
 		"outputs": [
 			{
 				"name": "",
@@ -599,52 +540,29 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getContractBalance",
+		"name": "Owner",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getDeadTokenBalance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_address",
 				"type": "address"
 			}
 		],
-		"name": "isAlreadyVesting",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			},
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "OnorOff",
+				"type": "bool"
+			}
+		],
+		"name": "enablePaidDisableMigration",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -673,7 +591,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "islockedtoken",
+		"name": "releasefunds",
 		"outputs": [
 			{
 				"name": "",
@@ -685,9 +603,45 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_dumper",
+				"type": "address"
+			},
+			{
+				"name": "_onoroff",
+				"type": "bool"
+			},
+			{
+				"name": "option",
+				"type": "int256"
+			}
+		],
+		"name": "manageDumpers",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
-		"name": "isOwner",
+		"name": "requiredRCVR",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "triggercharity",
 		"outputs": [
 			{
 				"name": "",
@@ -696,6 +650,61 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_scamtoken",
+				"type": "address"
+			}
+		],
+		"name": "getRedemptionAmount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "globalclaimsblocked",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "option",
+				"type": "int256"
+			},
+			{
+				"name": "_blockedaddress",
+				"type": "address"
+			},
+			{
+				"name": "_onoroff",
+				"type": "bool"
+			}
+		],
+		"name": "manageBlockedAddresses",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -706,7 +715,7 @@
 				"type": "address"
 			}
 		],
-		"name": "isPrivateAddress",
+		"name": "isDumperAddress",
 		"outputs": [
 			{
 				"name": "",
@@ -722,19 +731,61 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "_address",
-				"type": "address"
+				"name": "_tokenSwapLimit",
+				"type": "uint256"
 			}
 		],
-		"name": "isWhitelistAddress",
+		"name": "setTokenSwapLimit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tokenlimiter",
 		"outputs": [
 			{
 				"name": "",
 				"type": "bool"
-			},
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdrawETH",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "burnaddress",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "USDTlimit",
+		"outputs": [
 			{
 				"name": "",
 				"type": "uint256"
@@ -745,13 +796,22 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [],
+		"name": "collectRCVR",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
-		"name": "lpcheck",
+		"name": "conversionmultiplier",
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -775,216 +835,6 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "MigrationContractAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "migrationenabled",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "minimumdeadtokenbalance",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "minowconversionrate",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "owner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "Owner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "paidmigrationenabled",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "payout10",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "privatemigrationenabled",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "RCVRAddress",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "rcvrlpcontract",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "requiredRCVR",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "tokenconversionrate",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "tokenlimiter",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "TokenName",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "tokenswaplimit",
 		"outputs": [
 			{
@@ -999,7 +849,7 @@
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "TokenToBeConverted",
+		"name": "USDTAddress",
 		"outputs": [
 			{
 				"name": "",
@@ -1011,19 +861,11 @@
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [],
-		"name": "whitelistenabled",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
 ],
-    "address": "0xc70b243454dE36138105b27d4f7BD3d1e6638508"
+    "address": "0xa5A029723443647bbc8E9e10BC835A76640A5F9A"
 }

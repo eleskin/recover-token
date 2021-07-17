@@ -28,7 +28,7 @@ const Navbar = () => {
       <Link
         to="/migration"
         className={location.pathname === '/migration' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="Migration Management"
+        data-text="Rug Migrator"
       >
         <FontAwesomeIcon icon={faExchangeAlt}/>
       </Link>
@@ -42,7 +42,7 @@ const Navbar = () => {
       <Link
         to="/about"
         className={location.pathname === '/about' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="RCVR Statistics"
+        data-text="Rug Oracle and Stats"
       >
         <FontAwesomeIcon icon={faInfo}/>
       </Link>

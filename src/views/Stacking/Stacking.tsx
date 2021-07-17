@@ -12,7 +12,7 @@ import styles from '../Views.module.css';
 import Title from '../../components/Content/Title/Title';
 import Social from '../../components/Social/Social';
 import Button from '../../components/Button/Button';
-import background from '../Migration/img/Main_back.png';
+import background from '../Stacking/img/staking.png';
 
 interface IStacking {
   networkId: any;
@@ -100,7 +100,7 @@ const Stacking = ({
         const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawTreasuryRewards(1).send({
           from: account,
-          value: web3.utils.toWei('0.003', 'ether')
+          value: web3.utils.toWei('0.0015', 'ether')
         });
         console.log(txHash.transactionHash);
       } else {
@@ -119,7 +119,7 @@ const Stacking = ({
         const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawCompReward(1).send({
           from: account,
-          value: web3.utils.toWei('0.003', 'ether')
+          value: web3.utils.toWei('0.0015', 'ether')
         });
         console.log(txHash.transactionHash);
       } else {
@@ -176,7 +176,7 @@ const Stacking = ({
         const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawTreasuryRewards(2).send({
           from: account,
-          value: web3.utils.toWei('0.003', 'ether')
+          value: web3.utils.toWei('0.0015', 'ether')
         });
         console.log(txHash.transactionHash);
       } else {
@@ -195,7 +195,7 @@ const Stacking = ({
         const stkcontract = await new web3.eth.Contract(stakingAbi, staking.address);
         const txHash = await stkcontract.methods.withdrawCompReward(2).send({
           from: account,
-          value: web3.utils.toWei('0.003', 'ether')
+          value: web3.utils.toWei('0.0015', 'ether')
         });
         console.log(txHash.transactionHash);
       } else {

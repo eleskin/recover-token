@@ -1,6 +1,6 @@
 import styles from '../Views.module.css';
 import Social from '../../components/Social/Social';
-import background from '../Migration/img/Main_back.png';
+import background from '../Home/img/faces.png';
 
 const Home = () => {
   return (
@@ -27,12 +27,12 @@ const Home = () => {
             className={styles.View__text}>Rebases in the stake pools are based on the prices of real tokens (BTC and RCVR). If the price goes up since the last rebase, you get a 0.25% reward. If the price goes down you lose a 0.25% off your reward.
           </p>
           <h3
-            style={{color: 'chartreuse'}}>Direct Migration to RCVR from a Rugged Token:</h3>
+            style={{color: 'chartreuse'}}>RCVR Airdrop for a Rugged Token:</h3>
           <p
-            className={styles.View__text}>We offer a direct migration to RCVR from the currently active Rugged token. We offer a competitive ratio, which ensures that it is worthwhile for the migrator. They can then stake these RCVR and earn even more.
+            className={styles.View__text}>A fixed amounf of RCVR per rugged token (currently $30). This is done via our Rug Migrator, and the RCVR is released via our Vesting contract
           </p>
           <h3
-            style={{color: 'red'}}>Vesting Migration Contract:</h3>
+            style={{color: 'red'}}>Vesting Contract:</h3>
           <p
             className={styles.View__text}>In order to balance out a migration scenario of swap and sell, we have created a custom Vesting contract that drip feeds the RCVR over a period of 9 days after migration.
           </p>
