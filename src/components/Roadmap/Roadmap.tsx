@@ -21,11 +21,19 @@ const Roadmap = ({points}: IRoadmap) => {
   })();
 
   const pointsItems = formatPoints.map((row, i) => (
-    <div className="Roadmap__row" key={i}>{
-      row.map((item, i) => (
-        <div className="Roadmap__item" key={i}>
+    <div
+      style={{
+        justifyContent: i % 2
+          ? formatPoints[i].length !== 1 ? 'space-between' : 'flex-start'
+          : formatPoints[i].length !== 1 ? 'space-between' : 'flex-end'
+      }}
+      className="Roadmap__row"
+      key={i}
+    >{
+      row.map((item, j) => (
+        <div className="Roadmap__item" key={j}>
           <div>
-            <span>{item.title}</span>
+            <span className="Roadmap__count">{item.title}</span>
             <p>{item.text}</p>
           </div>
         </div>

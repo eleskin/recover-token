@@ -21,6 +21,14 @@ const Roadmap = () => {
               {title: 'Q4 2022', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
               {title: 'Q1 2023', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
               {title: 'Q2 2023', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q3 2021', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q4 2021', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q1 2022', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q2 2022', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q3 2022', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q4 2022', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q1 2023', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
+              {title: 'Q2 2023', text: 'Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'},
             ]}
           />
         </div>

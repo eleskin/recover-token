@@ -13,40 +13,39 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: 25px 0;
+  padding: 28px 0;
 }
 
 .Roadmap__row::after {
   content: '';
   display: block;
-  height: 100%;
-  border: 2px solid #ffffff;
-  width: calc(100% + 20px);
+  height: calc(100% - 4px);
+  border: 4px solid #ffffff;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 42.5px;
+  margin-top: 46px;
   z-index: 0;
   margin-left: -20px;
   margin-right: -20px;
 }
 
 .Roadmap__row:nth-child(odd)::after {
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
   border-left: none;
   margin-left: 0;
-  transform: translateX(5px) translateY(-1px);
+  transform: translateX(0px) translateY(-0px);
 }
 
 .Roadmap__row:nth-child(even)::after {
-  border-bottom-left-radius: 10px;
-  border-top-left-radius: 10px;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
   border-right: none;
   margin-right: 0;
-  transform: translateX(-5px) translateY(1px);
+  transform: translateX(0px) translateY(0px);
 }
 
 .Roadmap__row:last-child::after {
@@ -54,7 +53,6 @@
 }
 
 .Roadmap__item {
-  width: 33%;
   text-align: center;
 }
 
@@ -66,19 +64,30 @@
   text-align: right;
 }
 
+.Roadmap__item:first-child div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Roadmap__item:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .Roadmap__item div {
-  height: 40px;
   display: block;
   text-align: center;
 }
 
-.Roadmap__item div span {
+.Roadmap__item div .Roadmap__count {
   background-color: #292929;
   border-radius: 4px;
-  width: fit-content;
   margin: auto;
   padding: 8px 16px;
   height: 40px;
+  width: fit-content;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -86,6 +95,14 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+}
+
+.Roadmap__item:first-child div .Roadmap__title {
+  transform: translateX(-10px);
+}
+
+.Roadmap__item:last-child div .Roadmap__title {
+  transform: translateX(10px);
 }
 
 .Roadmap__item div p {
@@ -105,6 +122,21 @@
 
 .Roadmap__item div span:hover ~ p {
   display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin-top: 72px;
+  max-width: 320px;
+  text-align: left;
+}
+
+.Roadmap__item:first-child div span:hover ~ p {
+  right: auto;
+}
+
+.Roadmap__item:last-child div span:hover ~ p {
+  left: auto;
 }
 
 .Roadmap__item:first-child div span {
