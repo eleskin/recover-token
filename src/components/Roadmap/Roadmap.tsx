@@ -34,7 +34,16 @@ const Roadmap = ({points}: IRoadmap) => {
         <div className="Roadmap__item" key={j}>
           <div>
             <span className="Roadmap__count">{item.title}</span>
-            <p>{item.text}</p>
+            <p
+              style={{
+                top: i === formatPoints.length - 1 ? '' : '0',
+                bottom: i === formatPoints.length - 1 ? '0' : '',
+                marginTop: i === formatPoints.length - 1 ? '' : '72px',
+                marginBottom: i === formatPoints.length - 1 ? '72px' : '',
+              }}
+            >
+              {item.text}
+            </p>
           </div>
         </div>
       ))

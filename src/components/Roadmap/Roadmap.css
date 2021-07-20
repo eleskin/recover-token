@@ -109,33 +109,36 @@
   background-color: #292929;
   border-radius: 4px;
   width: fit-content;
-  margin: auto;
   padding: 8px 16px;
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  display: none;
-  position: relative;
-  z-index: 2;
-}
-
-.Roadmap__item div span:hover ~ p {
-  display: flex;
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
-  margin-top: 72px;
+  margin: auto;
   max-width: 320px;
   text-align: left;
+  height: fit-content;
+  transition: var(--transition);
+  opacity: 0;
+  z-index: -1;
+  display: flex;
 }
 
-.Roadmap__item:first-child div span:hover ~ p {
+.Roadmap__item div span:hover ~ p {
+  transition: var(--transition) 0.1s, z-index 0s ease-in-out 0s;
+  opacity: 1;
+  z-index: 2;
+}
+
+.Roadmap__item:first-child div p {
   right: auto;
 }
 
-.Roadmap__item:last-child div span:hover ~ p {
+.Roadmap__item:last-child div p {
   left: auto;
 }
 
@@ -145,4 +148,10 @@
 
 .Roadmap__item:last-child div span {
   margin-right: 0;
+}
+
+@media (max-width: 640px) {
+  .Roadmap__item div .Roadmap__count {
+    font-size: 14px;
+  }
 }
