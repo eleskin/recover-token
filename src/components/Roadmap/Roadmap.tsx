@@ -3,6 +3,7 @@ import './Roadmap.css';
 interface IPoint {
   title: string;
   text: string;
+  complete?: boolean;
 }
 
 interface IRoadmap {
@@ -33,13 +34,16 @@ const Roadmap = ({points}: IRoadmap) => {
       row.map((item, j) => (
         <div className="Roadmap__item" key={j}>
           <div>
-            <span className="Roadmap__count">{item.title}</span>
+            <span className="Roadmap__count">
+              {item.complete && <div className="Roadmap__complete">✔</div>}
+              {item.title}
+            </span>
             <p
               style={{
                 top: i === formatPoints.length - 1 ? '' : '0',
                 bottom: i === formatPoints.length - 1 ? '0' : '',
-                marginTop: i === formatPoints.length - 1 ? '' : '72px',
-                marginBottom: i === formatPoints.length - 1 ? '72px' : '',
+                marginTop: i === formatPoints.length - 1 ? '' : '84px',
+                marginBottom: i === formatPoints.length - 1 ? '84px' : '',
               }}
             >
               {item.text}

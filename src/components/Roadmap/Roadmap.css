@@ -26,7 +26,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin-top: 46px;
+  margin-top: 56px;
   z-index: 0;
   margin-left: -20px;
   margin-right: -20px;
@@ -86,7 +86,7 @@
   border-radius: 4px;
   margin: auto;
   padding: 8px 16px;
-  height: 40px;
+  height: 60px;
   width: fit-content;
   box-sizing: border-box;
   display: flex;
@@ -152,6 +152,6 @@
 
 @media (max-width: 640px) {
   .Roadmap__item div .Roadmap__count {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
