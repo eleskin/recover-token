@@ -30,6 +30,10 @@ interface IStacking {
   riskyrewardBalance: number;
   lptokenBalance: number;
   balance: number;
+  totalSafe: number;
+  totalRisky: number;
+  lastsaferebase: string;
+  lastriskyrebase: string;
 }
 
 
@@ -48,7 +52,11 @@ const Stacking = ({
                     riskystakedBalance,
                     rewardBalance,
                     balance,
-                    riskyrewardBalance
+                    riskyrewardBalance,
+                    totalSafe,
+                    totalRisky,
+                    lastsaferebase,
+                    lastriskyrebase
                   }: IStacking) => {
   const [stake, setStake] = useState('');
   const [riskystake, setRiskyStake] = useState('');
@@ -302,6 +310,26 @@ const Stacking = ({
           <div className={styles.View__buttons_2}>
             <Button type="primary" prompt="Rebase the SafePool and generate Rewards if +" onClick={forceDistribute2}>Trigger SafePool Rebase!</Button>
             <Button type="primary" prompt="Rebase the RiskyPool and generate Rewards if +" onClick={forceDistribute1}>Trigger RiskyPool Rebase!</Button>
+          </div>
+          <div className={styles.View__stats}>
+            <span>
+              [Safe Stake Pool: <i>{totalSafe}</i>]
+            </span>
+            <span>
+              [Risky Stake Pool: <i>{totalRisky}</i>]
+            </span>
+            <span>
+              [RCVR Next Claim Date: <i>x/x/x</i>]
+            </span>
+            <span>
+              [Number of claims: <i>0</i>]
+            </span>
+            <span>
+              [Last Safe Rebase(Valid Change): <i>{lastsaferebase}</i>]
+            </span>
+            <span>
+              [Last Risky Rebase(Valid Change): <i>{lastriskyrebase}</i>]
+            </span>
           </div>
         </div>
       </div>

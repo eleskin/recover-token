@@ -84,6 +84,10 @@ const Layout = ({
                   riskystakedBalance={riskystakedBalance}
                   rewardBalance={rewardBalance}
                   riskyrewardBalance={riskyrewardBalance}
+                  totalSafe={totalSafe}
+                  totalRisky={totalRisky}
+                  lastsaferebase={lastsaferebase}
+                  lastriskyrebase={lastriskyrebase}
                 />
               </Route>
               <Route exact path="/migration">
@@ -100,12 +104,7 @@ const Layout = ({
               </Route>
               <Route exact path="/white-paper"><Paper/></Route>
               <Route exact path="/about">
-                <About
-                  totalSafe={totalSafe}
-                  totalRisky={totalRisky}
-                  lastsaferebase={lastsaferebase}
-                  lastriskyrebase={lastriskyrebase}
-                />
+                <About/>
               </Route>
               <Route exact path="/roadmap"><Roadmap/></Route>
               <Route exact path="*"><Redirect to="/"/></Route>
