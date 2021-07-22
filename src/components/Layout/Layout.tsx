@@ -12,6 +12,7 @@ import About from '../../views/About/About';
 import {Dispatch, useState} from 'react';
 import Home from '../../views/Home/Home';
 import Roadmap from '../../views/Roadmap/Roadmap';
+import Oracle from '../../views/Oracle/Oracle';
 
 interface ILayout {
   isVisibleNavbar: boolean;
@@ -103,10 +104,11 @@ const Layout = ({
                 />
               </Route>
               <Route exact path="/white-paper"><Paper/></Route>
-              <Route exact path="/about">
-                <About/>
-              </Route>
+              <Route exact path="/about"><About/></Route>
               <Route exact path="/roadmap"><Roadmap/></Route>
+              <Route exact path="/oracle">
+                <Oracle/>
+              </Route>
               <Route exact path="*"><Redirect to="/"/></Route>
             </Switch>
           </div>
