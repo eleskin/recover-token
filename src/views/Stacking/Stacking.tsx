@@ -273,7 +273,9 @@ const Stacking = ({
             <span>RCVR LP Balance: {lptokenBalance}</span>
           </div>
           <div className={styles.View__label}>
-            <h4>Safe Staking Pool:</h4>
+            <header>
+              <h4>Safe Staking Pool:</h4>
+            </header>
             <input
               type="number"
               placeholder="RCVR amount to Stake"
@@ -285,13 +287,17 @@ const Stacking = ({
             />
             <div>
               <Button type="primary" prompt="Stake XX RCVR" onClick={createSafeStake}>Stake</Button>
-              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark" onClick={removeStake}>Unstake</Button>
+              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark"
+                      onClick={removeStake}>Unstake</Button>
               <Button type="danger" prompt="Clain Pending RCVR Rewards" onClick={getSafeRewards}>Withdraw!</Button>
-              <Button type="success" prompt="Claim Pending Reward and add to Stake" onClick={getTreasuryRewardsCompSafe}>Compound!</Button>
+              <Button type="success" prompt="Claim Pending Reward and add to Stake"
+                      onClick={getTreasuryRewardsCompSafe}>Compound!</Button>
             </div>
           </div>
           <div className={styles.View__label}>
-            <h4>Risky Staking Pool</h4>
+            <header>
+              <h4>Risky Staking Pool</h4>
+            </header>
             <input
               type="number"
               placeholder="RCVR amount to Stake"
@@ -302,14 +308,18 @@ const Stacking = ({
             />
             <div>
               <Button type="primary" prompt="Stake XX RCVR" onClick={createRiskyStake}>Stake</Button>
-              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark" onClick={removeRiskyStake}>Unstake</Button>
+              <Button type="secondary" prompt="Remove XX RCVR from Stake" theme="dark"
+                      onClick={removeRiskyStake}>Unstake</Button>
               <Button type="danger" prompt="Clain Pending RCVR Rewards" onClick={getRiskyRewards}>Withdraw!</Button>
-              <Button type="success" prompt="Claim Pending Reward and add to Stake" onClick={getTreasuryRewardsCompRisky}>Compound!</Button>
+              <Button type="success" prompt="Claim Pending Reward and add to Stake"
+                      onClick={getTreasuryRewardsCompRisky}>Compound!</Button>
             </div>
           </div>
           <div className={styles.View__buttons_2}>
-            <Button type="primary" prompt="Rebase the SafePool and generate Rewards if +" onClick={forceDistribute2}>Trigger SafePool Rebase!</Button>
-            <Button type="primary" prompt="Rebase the RiskyPool and generate Rewards if +" onClick={forceDistribute1}>Trigger RiskyPool Rebase!</Button>
+            <Button type="primary" prompt="Rebase the SafePool and generate Rewards if +"
+                    onClick={forceDistribute2}>Trigger SafePool Rebase!</Button>
+            <Button type="primary" prompt="Rebase the RiskyPool and generate Rewards if +"
+                    onClick={forceDistribute1}>Trigger RiskyPool Rebase!</Button>
           </div>
           <div className={styles.View__stats}>
             <span>

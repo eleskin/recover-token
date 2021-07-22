@@ -149,10 +149,25 @@
   display: flex;
   grid-column-gap: 20px;
   padding: 12px 0;
+  align-items: center;
 }
 
 .View__label div button {
   width: 100%;
+}
+
+.View__label header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.View__label header span {
+  font-weight: bold;
 }
 
 @media (max-width: 1280px) {
