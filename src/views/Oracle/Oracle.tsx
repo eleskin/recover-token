@@ -21,7 +21,9 @@ const Oracle = () => {
   const [tokenAddressSupported, setTokenAddressSupported] = useState('');
   const [tokenNameFound, setTokenNameFound] = useState('');
   const [tokenRateFound, setTokenRateFound] = useState(0);
-  const [tokenCharityFound, setTokenCharityFound] = useState(0);
+  const [tokenCharityFound, setTokenCharityFound] = useState('');
+  const [addressEligable, setAddressEligable] = useState('');
+  const [isEligableResult, setIsEligableResult] = useState('');
 
   const web3 = new Web3(Web3.givenProvider || 'https://bsc-dataseed.binance.org/');
   const oracleAbi: any = oracle.abi;
@@ -55,16 +57,32 @@ const Oracle = () => {
 
   const getTokenSupported = async () => {
     try {
-      await oraclecontract.methods.isValidRugToken(String(tokenAddressSupported)).call()
-        ? setIsSupportedTokenResult('Token is supported')
-        : setIsSupportedTokenResult('Token is not supported');
+      if (await oraclecontract.methods.isValidRugToken(String(tokenAddressSupported)).call()) {
+        setIsSupportedTokenResult('Token is supported');
 
-      setTokenNameFound(await oraclecontract.methods.getTokenName(String(tokenAddressSupported)).call());
-      setTokenRateFound(await oraclecontract.methods.getConversionRate(String(tokenAddressSupported)).call());
-      setTokenCharityFound(await oraclecontract.methods.getCharityAddress(String(tokenAddressSupported)).call());
+        const _address = await oraclecontract.methods.RCVRAddress().call();
+
+        setTokenNameFound(await oraclecontract.methods.getTokenName(String(tokenAddressSupported)).call());
+        setTokenRateFound(await oraclecontract.methods.getConversionRate(String(_address)).call());
+        setTokenCharityFound(await oraclecontract.methods.getCharityAddress(String(_address)).call());
+      } else {
+        setIsSupportedTokenResult('Token is not supported');
+      }
+
     } catch (e) {
       setIsSupportedTokenResult('Token not found');
-      console.log(e)
+    }
+  };
+
+  const getIsEligable = async () => {
+    try {
+      const _address = await oraclecontract.methods.RCVRAddress().call();
+
+      await oraclecontract.methods.isHolder(_address, String(addressEligable)).call()
+        ? setIsEligableResult('Wallet is eligable for AirDrop')
+        : setIsEligableResult('Wallet is not eligable for AirDrop');
+    } catch (e) {
+      setIsEligableResult('Address not found');
     }
   };
 
@@ -135,17 +153,35 @@ const Oracle = () => {
             <div>
               <Button type="primary" onClick={getTokenSupported}>Search token</Button>
             </div>
-          </div>
-          <div className={styles.View__stats}>
+            <div className={styles.View__stats} style={{marginBottom: 0}}>
             <span>
               Token Name: {tokenNameFound}
             </span>
-            <span>
+              <span>
               Current swap Rate in $: {tokenRateFound}
             </span>
-            <span>
+              <span>
               Charity Donation Address: {tokenCharityFound}
             </span>
+            </div>
+          </div>
+          <div className={styles.View__label}>
+            <header>
+              <h4>Am I in the Eligable for the airdrop?" [Wallet Address] [Search]</h4>
+              <span>{isEligableResult}</span>
+            </header>
+            <input
+              type="text"
+              placeholder="Wallet Address"
+              defaultValue={addressEligable}
+              onChange={async (e) => {
+                setAddressEligable(e.target.value);
+                setIsEligableResult('');
+              }}
+            />
+            <div>
+              <Button type="primary" onClick={getIsEligable}>Check</Button>
+            </div>
           </div>
         </div>
       </div>
