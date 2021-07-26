@@ -8,6 +8,7 @@ import oracle from '../../contracts/Oracle.json';
 import Web3 from 'web3';
 import Button from '../../components/Button/Button';
 import Social from '../../components/Social/Social';
+import Helper from '../../components/Helper/Helper';
 
 const Oracle = () => {
   const [importedRugCounter, setImportedRugCounter] = useState(0);
@@ -103,7 +104,9 @@ const Oracle = () => {
               Current RCVR Price : {(Number(String(ruggedTokenPrice)) / 1000000000000000000).toFixed(8)}BNB
             </span>
           </div>
-          {/*<div className={styles.View__help}>Help</div>*/}
+          <Helper
+            text="Lorem Ipsum dolor set set dolor ipsum lorem dolor set set dolor ipsum lorem dolor"
+          />
         </div>
         <Title value="Oracle price checker"/>
         <div className={styles.View__container}>
@@ -122,6 +125,9 @@ const Oracle = () => {
               <Button type="primary" onClick={getTokenPrice}>Get price</Button>
             </div>
           </div>
+          <Helper
+            text="Lorem Ipsum dolor set set dolor ipsum lorem dolor set set dolor ipsum lorem dolor"
+          />
         </div>
         <Title value="Oracle scam/rug tools"/>
         <div className={styles.View__container}>
@@ -190,6 +196,9 @@ const Oracle = () => {
               <Button type="primary" onClick={getIsEligable}>Check</Button>
             </div>
           </div>
+          <Helper
+            text="Lorem Ipsum dolor set set dolor ipsum lorem dolor set set dolor ipsum lorem dolor"
+          />
         </div>
         <div className={styles.View__container}>
           <h1

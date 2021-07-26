@@ -1,0 +1,32 @@
+.Helper {
+  /*width: fit-content;*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+.Helper__title {
+  border-bottom: 1px solid #ffffff;
+  cursor: default;
+  font-size: 14px;
+}
+
+.Helper__text {
+  position: absolute;
+  top: 24px;
+  max-width: 280px;
+  background-color: #292929;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.Helper__title:hover ~ .Helper__text {
+  transition: var(--transition) 0.1s, z-index 0s ease-in-out 0s;
+  opacity: 1;
+  z-index: 2;
+}
