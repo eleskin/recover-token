@@ -25,6 +25,7 @@ const Oracle = () => {
   const [tokenCharityFound, setTokenCharityFound] = useState('');
   const [addressEligable, setAddressEligable] = useState('');
   const [isEligableResult, setIsEligableResult] = useState('');
+  const [isVisibleEligable, setIsVisibleEligable] = useState(false);
 
   const web3 = new Web3(Web3.givenProvider || 'https://bsc-dataseed.binance.org/');
   const oracleAbi: any = oracle.abi;
@@ -61,17 +62,19 @@ const Oracle = () => {
       if (await oraclecontract.methods.isValidRugToken(String(tokenAddressSupported)).call()) {
         setIsSupportedTokenResult('Token is supported');
 
-        const _address = await oraclecontract.methods.RCVRAddress().call();
-
         setTokenNameFound(await oraclecontract.methods.getTokenName(String(tokenAddressSupported)).call());
-        setTokenRateFound(await oraclecontract.methods.getConversionRate(String(_address)).call());
-        setTokenCharityFound(await oraclecontract.methods.getCharityAddress(String(_address)).call());
+        setTokenRateFound(await oraclecontract.methods.getConversionRate(String(tokenAddressSupported)).call());
+        setTokenCharityFound(await oraclecontract.methods.getCharityAddress(String(tokenAddressSupported)).call());
+
+        setIsVisibleEligable(true);
       } else {
         setIsSupportedTokenResult('Token is not supported');
+        setIsVisibleEligable(false);
       }
 
     } catch (e) {
       setIsSupportedTokenResult('Token not found');
+      setIsVisibleEligable(false);
     }
   };
 
@@ -178,24 +181,29 @@ const Oracle = () => {
             </span>
             </div>
           </div>
-          <div className={styles.View__label}>
-            <header>
-              <h4>Am I in the Eligable for the airdrop?" [Wallet Address] [Search]</h4>
-              <span>{isEligableResult}</span>
-            </header>
-            <input
-              type="text"
-              placeholder="Wallet Address"
-              defaultValue={addressEligable}
-              onChange={async (e) => {
-                setAddressEligable(e.target.value);
-                setIsEligableResult('');
-              }}
-            />
-            <div>
-              <Button type="primary" onClick={getIsEligable}>Check</Button>
+          {
+            isVisibleEligable
+            &&
+            <div className={styles.View__label}>
+              <header>
+                <h4>Am I in the Eligable for the airdrop? [Wallet Address] [Search]</h4>
+                <span>{isEligableResult}</span>
+              </header>
+              <input
+                type="text"
+                placeholder="Wallet Address"
+                defaultValue={addressEligable}
+                onChange={async (e) => {
+                  setAddressEligable(e.target.value);
+                  setIsEligableResult('');
+                }}
+              />
+              <div>
+                <Button type="primary" onClick={getIsEligable}>Check</Button>
+              </div>
             </div>
-          </div>
+          }
+
           <Helper
             text="Lorem Ipsum dolor set set dolor ipsum lorem dolor set set dolor ipsum lorem dolor"
           />
