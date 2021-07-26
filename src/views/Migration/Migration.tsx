@@ -121,29 +121,29 @@ const Migration = ({
                     prompt="Claim your outstanding RCVR for the vested period">Manual Claim Vested RCVR!</Button>
             <Button type="danger" onClick={migrate}
                     prompt="Scan wallet for eligable Tokens and get RCVR!">Run RugMigrator on my Wallet!</Button>
-            </div>
+          </div>
           <div className={styles.View__stats}>
             <span><b>Rug Migrator Statistics:</b></span>
           </div>
           <div>
-          <span><b>Current Supported Tokens: </b><i>$KIDS (0x7acf49997e9598843cb9051389fa755969e551bb)</i></span>
+            <span><b>Current Supported Tokens: </b><i>$KIDS (0x7acf49997e9598843cb9051389fa755969e551bb)</i></span>
           </div>
           <div>
-          <span><b>Current RCVR Payout per supported Token: </b><i>$30</i></span>
+            <span><b>Current RCVR Payout per supported Token: </b><i>$30</i></span>
           </div>
           <div>
-          <span><b>Current MAX RCVR payout limit:</b><i>$100</i></span>
+            <span><b>Current MAX RCVR payout limit:</b><i>$100</i></span>
           </div>
           <div>
-          <span><b>Current Migration Fee: </b><i>0.001BNB</i></span>
+            <span><b>Current Migration Fee: </b><i>0.001BNB</i></span>
           </div>
           <div>
-          <span><b>Total paid out to charity(s): </b><i>O RCVR</i></span>
+            <span><b>Total paid out to charity(s): </b><i>O RCVR</i></span>
           </div>
 
 
           <div>
-          ----------------------------------------------------------------------------------------------------------{"\n"}
+            ----------------------------------------------------------------------------------------------------------{'\n'}
           </div>
           <h1
             style={{marginBottom: '20px'}}>Migration Rules and Guidelines:</h1>

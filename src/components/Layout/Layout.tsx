@@ -104,7 +104,7 @@ const Layout = ({
                 />
               </Route>
               <Route exact path="/white-paper"><Paper/></Route>
-              <Route exact path="/about"><About/></Route>
+              {/*<Route exact path="/about"><About/></Route>*/}
               <Route exact path="/roadmap"><Roadmap/></Route>
               <Route exact path="/oracle">
                 <Oracle/>

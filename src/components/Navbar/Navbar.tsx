@@ -46,13 +46,13 @@ const Navbar = () => {
       >
         <FontAwesomeIcon icon={faStickyNote}/>
       </Link>
-      <Link
-        to="/about"
-        className={location.pathname === '/about' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="Rug Oracle and Stats"
-      >
-        <FontAwesomeIcon icon={faInfo}/>
-      </Link>
+      {/*<Link*/}
+      {/*  to="/about"*/}
+      {/*  className={location.pathname === '/about' ? styles.Navbar__link_active : styles.Navbar__link}*/}
+      {/*  data-text="Rug Oracle and Stats"*/}
+      {/*>*/}
+      {/*  <FontAwesomeIcon icon={faInfo}/>*/}
+      {/*</Link>*/}
       <Link
         to="/roadmap"
         className={location.pathname === '/roadmap' ? styles.Navbar__link_active : styles.Navbar__link}
@@ -63,7 +63,7 @@ const Navbar = () => {
       <Link
         to="/oracle"
         className={location.pathname === '/oracle' ? styles.Navbar__link_active : styles.Navbar__link}
-        data-text="Oracle page"
+        data-text="Oracle"
       >
         <FontAwesomeIcon icon={faSync}/>
       </Link>

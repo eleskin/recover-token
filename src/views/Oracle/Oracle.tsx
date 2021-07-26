@@ -88,9 +88,9 @@ const Oracle = () => {
 
   return (
     <div className={styles.View} style={{backgroundImage: `url(${background})`}}>
-      <h2 className={styles.View__title}>Oracle page</h2>
+      <h2 className={styles.View__title}>Oracle</h2>
       <div className={styles.View__content}>
-        <Title value="Oracle page"/>
+        <Title value="Oracle stats"/>
         <div className={styles.View__container}>
           <div className={styles.View__stats}>
             <span>
@@ -103,6 +103,10 @@ const Oracle = () => {
               Current RCVR Price : {(Number(String(ruggedTokenPrice)) / 1000000000000000000).toFixed(8)}BNB
             </span>
           </div>
+          {/*<div className={styles.View__help}>Help</div>*/}
+        </div>
+        <Title value="Oracle price checker"/>
+        <div className={styles.View__container}>
           <div className={styles.View__label}>
             <header>
               <h4>PanCakeSwap Price Checker: [Token Address] [Get Price]</h4>
@@ -118,6 +122,9 @@ const Oracle = () => {
               <Button type="primary" onClick={getTokenPrice}>Get price</Button>
             </div>
           </div>
+        </div>
+        <Title value="Oracle scam/rug tools"/>
+        <div className={styles.View__container}>
           <div className={styles.View__label}>
             <header>
               <h4>Is token a known scam? [Token Address] [Search]</h4>
@@ -183,6 +190,54 @@ const Oracle = () => {
               <Button type="primary" onClick={getIsEligable}>Check</Button>
             </div>
           </div>
+        </div>
+        <div className={styles.View__container}>
+          <h1
+            style={{marginBottom: '20px'}}>Migration Rules and Guidelines:</h1>
+          <h3
+            style={{marginBottom: '20px'}}>We are currently offering an airdrop of RCVR, if you hold an eligable rugged token. Before you proceed, please make sure you are aware of the following before proceeding:</h3>
+          <h3
+            style={{
+              color: 'yellow',
+              marginBottom: '20px'
+            }}>- You will only qualify if your address was in the holders contract snapshot when a rugged token was added to the migrator.</h3>
+          <h3
+            style={{
+              color: 'yellow',
+              marginBottom: '20px'
+            }}>- We currently automatically add the top 250 holders of each rug. Please get in touch with us on our Telegram Group below, if you are not in that group</h3>
+          <h3
+            style={{
+              color: 'red',
+              marginBottom: '20px'
+            }}>- A wallet is only allowed to migrate ONCE, and ALL rugged tokens will be used for the migration</h3>
+          <h3
+            style={{
+              color: 'chartreuse',
+              marginBottom: '20px'
+            }}>- There is a fee of 0.001BNB per migration transaction. This will go towards liquidty and timer costs</h3>
+          <h3
+            style={{
+              color: 'red',
+              marginBottom: '20px'
+            }}>- You will need to have 100RCVR in your wallet in order to process a migration transaction.</h3>
+          <h3
+            style={{
+              color: 'chartreuse',
+              marginBottom: '20px'
+            }}>- The Vesting period is 9 days.A 10% RCVR amount is paid out at migration and a further 10% per day for 9 days. A claim can be made every 24 hours.This will be automated via an Airdrop</h3>
+          <h3
+            style={{
+              color: 'red',
+              marginBottom: '20px'
+            }}>- If you hold RCVR v2 LP in your wallet you will get addtional RCVR as a bonus!</h3>
+          <h3
+            style={{
+              color: 'chartreuse',
+              marginBottom: '20px'
+            }}>- Dont forgot to stake your RCVR to gain additional rewards!</h3>
+
+          <h1>Any questions please visit our Telegram channel for assistance</h1>
         </div>
       </div>
       <Social/>
